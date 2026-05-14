@@ -116,9 +116,11 @@ a.gallery-item{text-decoration:none;color:inherit;display:block}
 /* CATEGORY GALLERY SECTIONS */
 .gallery-section{padding:100px 5% 80px;position:relative}
 .gallery-section .section-header{margin-bottom:48px}
-.gallery-detail-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.gallery-detail-tile{aspect-ratio:4/5;background:linear-gradient(170deg,var(--champagne),var(--gold));border-radius:4px;position:relative;overflow:hidden;border:1px solid rgba(194,166,125,0.1)}
-.gallery-detail-tile:nth-child(2),.gallery-detail-tile:nth-child(3){aspect-ratio:3/4}
+.gallery-empty{text-align:center;padding:32px 0 16px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--whisper);text-transform:uppercase}
+.gallery-empty span{display:inline-block;padding:0 22px;position:relative}
+.gallery-empty span::before,.gallery-empty span::after{content:'';position:absolute;top:50%;width:60px;height:1px;background:var(--burnished);opacity:0.45}
+.gallery-empty span::before{right:100%}
+.gallery-empty span::after{left:100%}
 .gallery-cta{text-align:center;margin-top:48px}
 
 /* MILESTONES SUB-GRID */
@@ -207,7 +209,20 @@ a.gallery-item{text-decoration:none;color:inherit;display:block}
 .form-submit{font-family:'Instrument Sans',sans-serif;font-size:11px;letter-spacing:2.5px;color:var(--ivory);background:var(--burnished);border:none;border-radius:4px;padding:14px 40px;cursor:pointer;transition:all 0.4s;text-transform:uppercase;margin-top:8px;width:100%;position:relative;overflow:hidden}
 .form-submit:hover{background:var(--bronze);box-shadow:0 8px 24px rgba(194,166,125,0.2);transform:translateY(-1px)}
 .form-success{display:none;text-align:center;padding:48px 24px}
-.form-success .check{width:48px;height:48px;border:2px solid var(--burnished);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--burnished);font-size:20px}
+.form-success .check-svg{width:64px;height:64px;display:block;margin:0 auto 22px;color:var(--burnished)}
+.form-success .check-svg-circle{fill:none;stroke:currentColor;stroke-width:1.5;stroke-dasharray:145;stroke-dashoffset:145;animation:checkCircleDraw 0.6s 0.1s forwards cubic-bezier(0.65,0,0.45,1)}
+.form-success .check-svg-path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:checkPathDraw 0.45s 0.6s forwards cubic-bezier(0.65,0,0.45,1)}
+@keyframes checkCircleDraw{to{stroke-dashoffset:0}}
+@keyframes checkPathDraw{to{stroke-dashoffset:0}}
+
+/* PER-CATEGORY EPIGRAPH */
+.gallery-epigraph{max-width:680px;margin:-12px auto 48px;text-align:center;font-family:'Crimson Pro',serif;font-style:italic;font-weight:300;font-size:clamp(16px,1.7vw,21px);color:var(--mid);line-height:1.6}
+
+/* HERITAGE STAMP */
+.heritage-stamp-wrap{display:flex;justify-content:center;margin-top:40px}
+.heritage-stamp{width:128px;height:128px;color:var(--burnished);opacity:0.85;transform:rotate(-6deg);transition:transform 0.6s cubic-bezier(0.23,1,0.32,1),opacity 0.6s}
+.heritage-stamp:hover{transform:rotate(-2deg);opacity:1}
+.heritage-stamp svg{width:100%;height:100%;display:block}
 .form-success h3{font-family:'Italiana',serif;font-size:28px;letter-spacing:3px;color:var(--deep);margin-bottom:12px}
 .form-success p{font-family:'Crimson Pro',serif;font-style:italic;font-size:15px;color:var(--mid);line-height:1.8}
 
@@ -394,12 +409,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="section-rule"></div>
 <p class="section-sub">connection in the everyday</p>
 </div>
-<div class="gallery-detail-grid">
-<div class="gallery-detail-tile reveal reveal-delay-1"></div>
-<div class="gallery-detail-tile reveal reveal-delay-2"></div>
-<div class="gallery-detail-tile reveal reveal-delay-3"></div>
-<div class="gallery-detail-tile reveal reveal-delay-4"></div>
-</div>
+<p class="gallery-epigraph reveal">They will remember how you held them — not how you posed.</p>
+<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
 <div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a family session</span></a></div>
 </section>
 
@@ -409,12 +420,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="section-rule"></div>
 <p class="section-sub">the quiet before everything</p>
 </div>
-<div class="gallery-detail-grid">
-<div class="gallery-detail-tile reveal reveal-delay-1"></div>
-<div class="gallery-detail-tile reveal reveal-delay-2"></div>
-<div class="gallery-detail-tile reveal reveal-delay-3"></div>
-<div class="gallery-detail-tile reveal reveal-delay-4"></div>
-</div>
+<p class="gallery-epigraph reveal">Becoming, becoming, becoming — and then, somehow, they are here.</p>
+<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
 <div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a maternity session</span></a></div>
 </section>
 
@@ -424,12 +431,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="section-rule"></div>
 <p class="section-sub">the way you look at each other</p>
 </div>
-<div class="gallery-detail-grid">
-<div class="gallery-detail-tile reveal reveal-delay-1"></div>
-<div class="gallery-detail-tile reveal reveal-delay-2"></div>
-<div class="gallery-detail-tile reveal reveal-delay-3"></div>
-<div class="gallery-detail-tile reveal reveal-delay-4"></div>
-</div>
+<p class="gallery-epigraph reveal">Love is a thousand small glances you didn't know you were giving.</p>
+<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
 <div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a couples session</span></a></div>
 </section>
 
@@ -439,12 +442,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="section-rule"></div>
 <p class="section-sub">the first ten days</p>
 </div>
-<div class="gallery-detail-grid">
-<div class="gallery-detail-tile reveal reveal-delay-1"></div>
-<div class="gallery-detail-tile reveal reveal-delay-2"></div>
-<div class="gallery-detail-tile reveal reveal-delay-3"></div>
-<div class="gallery-detail-tile reveal reveal-delay-4"></div>
-</div>
+<p class="gallery-epigraph reveal">Ten fingers, ten toes, and a whole life still wrapped in itself.</p>
+<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
 <div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a newborn session</span></a></div>
 </section>
 
@@ -454,12 +453,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="section-rule"></div>
 <p class="section-sub">real moments, beautifully held</p>
 </div>
-<div class="gallery-detail-grid">
-<div class="gallery-detail-tile reveal reveal-delay-1"></div>
-<div class="gallery-detail-tile reveal reveal-delay-2"></div>
-<div class="gallery-detail-tile reveal reveal-delay-3"></div>
-<div class="gallery-detail-tile reveal reveal-delay-4"></div>
-</div>
+<p class="gallery-epigraph reveal">The laundry on the couch and the coffee gone cold — this is the good stuff.</p>
+<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
 <div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a lifestyle session</span></a></div>
 </section>
 
@@ -469,6 +464,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="section-rule"></div>
 <p class="section-sub">the moments that change everything</p>
 </div>
+<p class="gallery-epigraph reveal">Every year is a museum. You'll want the exhibits later.</p>
 <div class="milestone-grid">
 <div class="milestone-card reveal reveal-delay-1"><h3>SITTER SESSION</h3><p class="milestone-age">6 MONTHS</p><p>The in-between magic — sitting up, smiling, just becoming.</p></div>
 <div class="milestone-card reveal reveal-delay-2"><h3>CAKE SMASH</h3><p class="milestone-age">12 MONTHS</p><p>Frosting in the hair, joy on full display.</p></div>
@@ -552,6 +548,23 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <a class="social-btn" href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
 </div>
 <div style="margin-top:32px"><p style="font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--whisper);line-height:1.8">I typically respond within 24 hours.<br>I can't wait to hear your story.</p></div>
+<div class="heritage-stamp-wrap reveal" style="justify-content:flex-start">
+<div class="heritage-stamp" role="img" aria-label="Madisen Brooke Photography, Magnolia Texas, established 2026">
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path id="stamp-arc-top" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"/>
+</defs>
+<circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+<circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.45"/>
+<text font-family="DM Mono, monospace" font-size="6" letter-spacing="2.4" fill="currentColor">
+<textPath href="#stamp-arc-top" startOffset="0%">MADISEN BROOKE · MAGNOLIA TX · EST 2026 · </textPath>
+</text>
+<rect x="56" y="56" width="8" height="8" transform="rotate(45 60 60)" fill="currentColor" opacity="0.75"/>
+<line x1="40" y1="60" x2="50" y2="60" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+<line x1="70" y1="60" x2="80" y2="60" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+</svg>
+</div>
+</div>
 </div>
 <div class="reveal from-right">
 <div class="booking-form" id="bookingForm">
@@ -566,7 +579,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <button type="submit" class="form-submit">Send My Request</button>
 </form>
 </div>
-<div class="form-success" id="formSuccess"><div class="check">&#10003;</div><h3>REQUEST RECEIVED</h3><p>Thank you for reaching out!<br>I'll be in touch within 24 hours<br>to start planning your session.</p></div>
+<div class="form-success" id="formSuccess"><svg class="check-svg" viewBox="0 0 52 52" aria-hidden="true"><circle class="check-svg-circle" cx="26" cy="26" r="23"/><path class="check-svg-path" d="M14 27 l8 8 l16 -18"/></svg><h3>REQUEST RECEIVED</h3><p>Thank you for reaching out!<br>I'll be in touch within 24 hours<br>to start planning your session.</p></div>
 </div>
 </div>
 </section>
