@@ -110,6 +110,11 @@ section{padding:120px 5%;position:relative}
 .gallery-overlay .cat-cta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0);transform:translateY(10px);transition:all 0.5s 0.1s cubic-bezier(0.23,1,0.32,1)}
 .gallery-item:hover .cat-name{color:rgba(255,255,255,0.95);transform:translateY(0)}
 .gallery-item:hover .cat-cta{color:rgba(255,255,255,0.6);transform:translateY(0)}
+@media(hover:none){
+.gallery-overlay{background:linear-gradient(to top,rgba(61,53,41,0.6) 0%,rgba(61,53,41,0.15) 45%,rgba(61,53,41,0) 70%);justify-content:flex-end;padding:0 0 22px;gap:6px}
+.gallery-overlay .cat-name{font-size:22px;letter-spacing:4px;color:rgba(255,255,255,0.95);transform:none;transition:none}
+.gallery-overlay .cat-cta{color:rgba(255,255,255,0.75);transform:none;transition:none}
+}
 
 /* ABOUT — SPLIT REVEAL */
 #about{background:var(--ivory);overflow:hidden}
