@@ -113,24 +113,6 @@ section{padding:120px 5%;position:relative}
 .gallery-item:hover .cat-cta{color:rgba(255,255,255,0.6);transform:translateY(0)}
 a.gallery-item{text-decoration:none;color:inherit;display:block}
 
-/* CATEGORY GALLERY SECTIONS */
-.gallery-section{padding:100px 5% 80px;position:relative}
-.gallery-section .section-header{margin-bottom:48px}
-.gallery-empty{text-align:center;padding:32px 0 16px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--whisper);text-transform:uppercase}
-.gallery-empty span{display:inline-block;padding:0 22px;position:relative}
-.gallery-empty span::before,.gallery-empty span::after{content:'';position:absolute;top:50%;width:60px;height:1px;background:var(--burnished);opacity:0.45}
-.gallery-empty span::before{right:100%}
-.gallery-empty span::after{left:100%}
-.gallery-cta{text-align:center;margin-top:48px}
-
-/* MILESTONES SUB-GRID */
-.milestone-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.milestone-card{padding:32px 28px;border:1px solid rgba(194,166,125,0.18);border-radius:6px;background:rgba(255,255,255,0.5);text-align:center;transition:transform 0.4s cubic-bezier(0.23,1,0.32,1),box-shadow 0.4s,border-color 0.4s}
-.milestone-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(61,53,41,0.06);border-color:rgba(194,166,125,0.35)}
-.milestone-card h3{font-family:'Italiana',serif;font-size:22px;letter-spacing:3px;color:var(--deep);margin-bottom:4px}
-.milestone-card .milestone-age{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--burnished);margin-bottom:14px}
-.milestone-card p:not(.milestone-age){font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--mid);line-height:1.7}
-
 @media(hover:none){
 .gallery-overlay{background:linear-gradient(to top,rgba(61,53,41,0.6) 0%,rgba(61,53,41,0.15) 45%,rgba(61,53,41,0) 70%);justify-content:flex-end;padding:0 0 22px;gap:6px}
 .gallery-overlay .cat-name{font-size:22px;letter-spacing:4px;color:rgba(255,255,255,0.95);transform:none;transition:none}
@@ -214,9 +196,6 @@ a.gallery-item{text-decoration:none;color:inherit;display:block}
 .form-success .check-svg-path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:checkPathDraw 0.45s 0.6s forwards cubic-bezier(0.65,0,0.45,1)}
 @keyframes checkCircleDraw{to{stroke-dashoffset:0}}
 @keyframes checkPathDraw{to{stroke-dashoffset:0}}
-
-/* PER-CATEGORY EPIGRAPH */
-.gallery-epigraph{max-width:680px;margin:-12px auto 48px;text-align:center;font-family:'Crimson Pro',serif;font-style:italic;font-weight:300;font-size:clamp(16px,1.7vw,21px);color:var(--mid);line-height:1.6}
 
 /* HERITAGE STAMP */
 .heritage-stamp-wrap{display:flex;justify-content:center;margin-top:40px}
@@ -393,85 +372,13 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <p class="section-sub">moments worth remembering</p>
 </div>
 <div class="gallery-grid">
-<a class="gallery-item reveal reveal-delay-1" href="#gallery-families"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">FAMILIES</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
-<a class="gallery-item reveal reveal-delay-2" href="#gallery-maternity"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MATERNITY</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
-<a class="gallery-item reveal reveal-delay-3" href="#gallery-couples"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">COUPLES</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
-<a class="gallery-item reveal reveal-delay-1" href="#gallery-newborn"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">NEWBORN</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
-<a class="gallery-item reveal reveal-delay-2" href="#gallery-lifestyle"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">LIFESTYLE</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
-<a class="gallery-item reveal reveal-delay-3" href="#gallery-milestones"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MILESTONES</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
+<a class="gallery-item reveal reveal-delay-1" href="#inquire" onclick="preselectCategory('family')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">FAMILIES</span><span class="cat-cta">INQUIRE →</span></div></a>
+<a class="gallery-item reveal reveal-delay-2" href="#inquire" onclick="preselectCategory('maternity')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MATERNITY</span><span class="cat-cta">INQUIRE →</span></div></a>
+<a class="gallery-item reveal reveal-delay-3" href="#inquire" onclick="preselectCategory('couples')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">COUPLES</span><span class="cat-cta">INQUIRE →</span></div></a>
+<a class="gallery-item reveal reveal-delay-1" href="#inquire" onclick="preselectCategory('newborn')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">NEWBORN</span><span class="cat-cta">INQUIRE →</span></div></a>
+<a class="gallery-item reveal reveal-delay-2" href="#inquire" onclick="preselectCategory('lifestyle')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">LIFESTYLE</span><span class="cat-cta">INQUIRE →</span></div></a>
+<a class="gallery-item reveal reveal-delay-3" href="#inquire" onclick="preselectCategory('milestones')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MILESTONES</span><span class="cat-cta">INQUIRE →</span></div></a>
 </div>
-</section>
-
-<!-- CATEGORY GALLERIES -->
-<section class="gallery-section" id="gallery-families">
-<div class="section-header reveal">
-<h2 class="section-title">FAMILIES</h2>
-<div class="section-rule"></div>
-<p class="section-sub">connection in the everyday</p>
-</div>
-<p class="gallery-epigraph reveal">They will remember how you held them — not how you posed.</p>
-<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
-<div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a family session</span></a></div>
-</section>
-
-<section class="gallery-section" id="gallery-maternity">
-<div class="section-header reveal">
-<h2 class="section-title">MATERNITY</h2>
-<div class="section-rule"></div>
-<p class="section-sub">the quiet before everything</p>
-</div>
-<p class="gallery-epigraph reveal">Becoming, becoming, becoming — and then, somehow, they are here.</p>
-<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
-<div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a maternity session</span></a></div>
-</section>
-
-<section class="gallery-section" id="gallery-couples">
-<div class="section-header reveal">
-<h2 class="section-title">COUPLES</h2>
-<div class="section-rule"></div>
-<p class="section-sub">the way you look at each other</p>
-</div>
-<p class="gallery-epigraph reveal">Love is a thousand small glances you didn't know you were giving.</p>
-<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
-<div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a couples session</span></a></div>
-</section>
-
-<section class="gallery-section" id="gallery-newborn">
-<div class="section-header reveal">
-<h2 class="section-title">NEWBORN</h2>
-<div class="section-rule"></div>
-<p class="section-sub">the first ten days</p>
-</div>
-<p class="gallery-epigraph reveal">Ten fingers, ten toes, and a whole life still wrapped in itself.</p>
-<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
-<div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a newborn session</span></a></div>
-</section>
-
-<section class="gallery-section" id="gallery-lifestyle">
-<div class="section-header reveal">
-<h2 class="section-title">LIFESTYLE</h2>
-<div class="section-rule"></div>
-<p class="section-sub">real moments, beautifully held</p>
-</div>
-<p class="gallery-epigraph reveal">The laundry on the couch and the coffee gone cold — this is the good stuff.</p>
-<div class="gallery-empty reveal"><span>Selected work — coming soon</span></div>
-<div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a lifestyle session</span></a></div>
-</section>
-
-<section class="gallery-section" id="gallery-milestones">
-<div class="section-header reveal">
-<h2 class="section-title">MILESTONES</h2>
-<div class="section-rule"></div>
-<p class="section-sub">the moments that change everything</p>
-</div>
-<p class="gallery-epigraph reveal">Every year is a museum. You'll want the exhibits later.</p>
-<div class="milestone-grid">
-<div class="milestone-card reveal reveal-delay-1"><h3>SITTER SESSION</h3><p class="milestone-age">6 MONTHS</p><p>The in-between magic — sitting up, smiling, just becoming.</p></div>
-<div class="milestone-card reveal reveal-delay-2"><h3>CAKE SMASH</h3><p class="milestone-age">12 MONTHS</p><p>Frosting in the hair, joy on full display.</p></div>
-<div class="milestone-card reveal reveal-delay-3"><h3>FIRST BIRTHDAY</h3><p class="milestone-age">12 MONTHS</p><p>Year one. Everything has changed.</p></div>
-<div class="milestone-card reveal reveal-delay-4"><h3>FIRST DAY OF SCHOOL</h3><p class="milestone-age">PRE-K &amp; UP</p><p>New shoes, big backpack, brave heart.</p></div>
-</div>
-<div class="gallery-cta reveal"><a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Inquire about a milestone session</span></a></div>
 </section>
 
 <!-- ABOUT -->
@@ -654,6 +561,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 
 // FORM
 function preselectPackage(p){setTimeout(()=>{const s=document.getElementById('sessionType');if(s)s.value=p},300)}
+function preselectCategory(c){setTimeout(()=>{const s=document.getElementById('sessionCategory');if(s)s.value=c},300)}
 function submitForm(e){
 e.preventDefault();const f=document.getElementById('leadForm');const d=new FormData(f);const lead={};d.forEach((v,k)=>{lead[k]=v});
 const leads=JSON.parse(localStorage.getItem('mb_leads')||'[]');lead.submitted=new Date().toISOString();leads.push(lead);localStorage.setItem('mb_leads',JSON.stringify(leads));
