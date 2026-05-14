@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Madisen Brooke Photography | Magnolia, Texas</title>
-<meta name="description" content="Madisen Brooke Photography — families, maternity, couples, newborn, lifestyle, and milestone photography in Magnolia, Houston, Cypress, and The Woodlands, Texas.">
+<title>Madisen B Photography | Magnolia, Texas</title>
+<meta name="description" content="Madisen B Photography — families, maternity, couples, newborn, lifestyle, and milestone photography in Magnolia, Houston, Cypress, and The Woodlands, Texas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -271,7 +271,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 
 <!-- NAV -->
 <nav id="mainNav">
-<a href="#" class="nav-brand">MADISEN BROOKE</a>
+<a href="#" class="nav-brand">MADISEN B</a>
 <div class="nav-links">
 <a href="#portfolio">Portfolio</a>
 <a href="#about">About</a>
@@ -294,7 +294,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="hero-photo"><span class="ph">HERO IMAGE</span></div>
 </div>
 <div class="hero-text">
-<h1 class="hero-name"><span class="line">MADISEN</span><span class="line">BROOKE</span></h1>
+<h1 class="hero-name"><span class="line">MADISEN</span><span class="line">B</span></h1>
 <div class="hero-rule"></div>
 <p class="hero-tagline">photography</p>
 <p class="hero-location">MAGNOLIA, TEXAS</p>
@@ -395,7 +395,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <h2 class="section-title" style="text-align:left">INQUIRE</h2>
 <div class="section-rule" style="margin:16px 0"></div>
 <p class="section-sub" style="text-align:left;margin-top:12px">let's create something beautiful</p>
-<p class="inquire-email"><a href="mailto:hello@madisenbrookephotography.photography">hello@madisenbrookephotography.photography</a></p>
+<p class="inquire-email"><a href="mailto:hello@madisenbphotography.com">hello@madisenbphotography.com</a></p>
 <p class="inquire-areas">HOUSTON &nbsp;·&nbsp; MAGNOLIA &nbsp;·&nbsp; CYPRESS<br>THE WOODLANDS &nbsp;·&nbsp; SPRING &nbsp;·&nbsp; TOMBALL</p>
 <div class="inquire-social"><a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank">@MADISENBROOKE.PHOTOGRAPHY</a></div>
 <div style="margin-top:32px"><p style="font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--whisper);line-height:1.8">I typically respond within 24 hours.<br>I can't wait to hear your story.</p></div>
@@ -422,7 +422,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <section class="client-banner reveal"><h3>CLIENT GALLERY</h3><p>Already had your session? View and download your images below.</p><a href="https://madisenbrookephotography.pixieset.com" target="_blank">ACCESS YOUR GALLERY →</a></section>
 
 <!-- FOOTER -->
-<footer><span>MADISENBROOKEPHOTOGRAPHY.PHOTOGRAPHY</span><span>&copy; 2026 MADISEN BROOKE PHOTOGRAPHY</span></footer>
+<footer><span>MADISENBPHOTOGRAPHY.COM</span><span>&copy; 2026 MADISEN B PHOTOGRAPHY</span></footer>
 
 <script>
 // SCROLL REVEAL
@@ -485,8 +485,8 @@ function submitForm(e){
 e.preventDefault();const f=document.getElementById('leadForm');const d=new FormData(f);const lead={};d.forEach((v,k)=>{lead[k]=v});
 const leads=JSON.parse(localStorage.getItem('mb_leads')||'[]');lead.submitted=new Date().toISOString();leads.push(lead);localStorage.setItem('mb_leads',JSON.stringify(leads));
 const subj=encodeURIComponent('New Session Request — '+lead.firstName+' '+lead.lastName);
-const body=encodeURIComponent('New booking request from madisenbrookephotography.photography\n\nName: '+lead.firstName+' '+lead.lastName+'\nEmail: '+lead.email+'\nPhone: '+(lead.phone||'N/A')+'\nPackage: '+lead.sessionType+'\nSession Type: '+(lead.sessionCategory||'N/A')+'\nPreferred Date: '+(lead.preferredDate||'Flexible')+'\nReferral: '+(lead.referral||'N/A')+'\nMessage: '+(lead.message||'None'));
-window.location.href='mailto:hello@madisenbrookephotography.photography?subject='+subj+'&body='+body;
+const body=encodeURIComponent('New booking request from madisenbphotography.com\n\nName: '+lead.firstName+' '+lead.lastName+'\nEmail: '+lead.email+'\nPhone: '+(lead.phone||'N/A')+'\nPackage: '+lead.sessionType+'\nSession Type: '+(lead.sessionCategory||'N/A')+'\nPreferred Date: '+(lead.preferredDate||'Flexible')+'\nReferral: '+(lead.referral||'N/A')+'\nMessage: '+(lead.message||'None'));
+window.location.href='mailto:hello@madisenbphotography.com?subject='+subj+'&body='+body;
 document.getElementById('bookingForm').querySelector('form').style.display='none';
 document.getElementById('formSuccess').style.display='block';
 setTimeout(()=>{f.reset();document.getElementById('bookingForm').querySelector('form').style.display='block';document.getElementById('formSuccess').style.display='none'},8000);
