@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Madisen Brooke Photography</title>
+<meta name="description" content="Selected work from Madisen Brooke Photography — families, maternity, couples, newborn, lifestyle, and milestone sessions in Magnolia, Houston, and the surrounding Texas Hill Country.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ivory:#FBF8F4;--haze:#F7F0E6;--rose:#F2E8E2;--champagne:#E8DDD2;--gold:#D4C4AA;--burnished:#C2A67D;--bronze:#A8926A;--deep:#3D3529;--mid:#6B5F50;--whisper:#8B7F6E;--line:#E0D8CE}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--ivory);color:var(--deep);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+::selection{background:var(--champagne);color:var(--deep)}
+a{color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(251,248,244,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(194,166,125,0.08)}
+.nav-brand{font-family:'Italiana',serif;font-size:18px;letter-spacing:4px;color:var(--deep);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color 0.3s}
+.nav-back:hover{color:var(--burnished)}
+.nav-social{display:inline-flex;gap:14px;align-items:center}
+.nav-social a{display:inline-flex;align-items:center;justify-content:center;color:var(--whisper);padding:6px;text-decoration:none;transition:color 0.3s,transform 0.3s}
+.nav-social a:hover{color:var(--burnished);transform:translateY(-1px)}
+.nav-social svg{width:18px;height:18px}
+
+/* MAIN */
+main{flex:1;padding-top:80px}
+
+/* HERO */
+.gallery-hero{padding:96px 5% 56px;text-align:center;max-width:900px;margin:0 auto}
+.gallery-breadcrumb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--whisper);margin-bottom:36px}
+.gallery-breadcrumb a{color:var(--whisper);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.3s,color 0.3s}
+.gallery-breadcrumb a:hover{color:var(--burnished);border-bottom-color:var(--burnished)}
+.gallery-title{font-family:'Italiana',serif;font-size:clamp(56px,8vw,108px);line-height:1.05;letter-spacing:8px;color:var(--deep)}
+.gallery-rule{width:0;height:1px;background:linear-gradient(90deg,var(--burnished),var(--burnished) 48%,transparent 48%,transparent 52%,var(--burnished) 52%);margin:32px auto;position:relative;animation:ruleGrow 1.1s 0.2s forwards cubic-bezier(0.23,1,0.32,1)}
+.gallery-rule::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:6px;height:6px;background:var(--burnished)}
+@keyframes ruleGrow{to{width:120px}}
+.gallery-epigraph{font-family:'Crimson Pro',serif;font-style:italic;font-weight:300;font-size:clamp(18px,2vw,24px);color:var(--mid);line-height:1.55;max-width:620px;margin:0 auto}
+
+/* PHOTOS */
+.gallery-photos{padding:48px 5% 96px;max-width:1200px;margin:0 auto;width:100%}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photo-tile{aspect-ratio:4/5;background:linear-gradient(170deg,var(--champagne),var(--gold));border-radius:4px;overflow:hidden;position:relative;border:1px solid rgba(194,166,125,0.12)}
+.photo-tile:nth-child(4n+2){aspect-ratio:3/4}
+.photo-tile:nth-child(4n+3){aspect-ratio:1/1.15}
+.photo-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-empty{text-align:center;padding:80px 0}
+.gallery-empty .empty-mark{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--whisper);padding:0 24px;position:relative;text-transform:uppercase}
+.gallery-empty .empty-mark::before,.gallery-empty .empty-mark::after{content:'';position:absolute;top:50%;width:70px;height:1px;background:var(--burnished);opacity:0.45}
+.gallery-empty .empty-mark::before{right:100%}
+.gallery-empty .empty-mark::after{left:100%}
+.gallery-empty p{font-family:'Crimson Pro',serif;font-style:italic;font-size:15px;color:var(--mid);margin-top:24px;line-height:1.8}
+
+/* CTA */
+.gallery-cta-block{background:linear-gradient(180deg,var(--ivory),var(--haze));padding:96px 5%;text-align:center}
+.gallery-cta-block .cta-intro{font-family:'Crimson Pro',serif;font-style:italic;font-size:clamp(20px,2.2vw,26px);color:var(--mid);margin-bottom:28px}
+.session-cta{display:inline-block;font-family:'Instrument Sans',sans-serif;font-size:11px;letter-spacing:3px;color:var(--burnished);text-decoration:none;padding:14px 36px;border:1px solid var(--burnished);border-radius:3px;transition:background 0.4s,color 0.4s;text-transform:uppercase}
+.session-cta:hover{background:var(--burnished);color:var(--ivory)}
+
+/* EXPLORE MORE */
+.explore-more{padding:96px 5% 64px;text-align:center;max-width:1200px;margin:0 auto;width:100%}
+.explore-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--whisper);margin-bottom:32px;text-transform:uppercase}
+.explore-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:900px;margin:0 auto}
+.explore-tile{display:block;text-decoration:none;color:inherit;border-radius:4px;overflow:hidden;position:relative;aspect-ratio:1/1.25;background:linear-gradient(170deg,var(--champagne),var(--gold));border:1px solid rgba(194,166,125,0.12);transition:transform 0.5s cubic-bezier(0.23,1,0.32,1)}
+.explore-tile:hover{transform:translateY(-3px)}
+.explore-tile::after{content:'';position:absolute;inset:0;background:rgba(61,53,41,0.25);opacity:0;transition:opacity 0.4s}
+.explore-tile:hover::after{opacity:1}
+.explore-tile .explore-cat{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Italiana',serif;font-size:clamp(14px,1.4vw,18px);letter-spacing:3px;color:var(--deep);z-index:1;text-align:center;padding:0 8px}
+.explore-tile:hover .explore-cat{color:rgba(255,255,255,0.95)}
+
+/* FOOTER */
+footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(194,166,125,0.08);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--whisper)}
+.footer-social{display:inline-flex;gap:10px;align-items:center}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--burnished);color:var(--burnished);text-decoration:none;transition:background 0.3s,color 0.3s}
+.footer-social a:hover{background:var(--burnished);color:var(--ivory)}
+.footer-social svg{width:14px;height:14px}
+
+/* REVEALS */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.9s cubic-bezier(0.23,1,0.32,1),transform 0.9s cubic-bezier(0.23,1,0.32,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:968px){
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.explore-tiles{grid-template-columns:repeat(3,1fr);max-width:520px}
+.nav-back{display:none}
+}
+@media(max-width:560px){
+.gallery-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}
+.explore-tiles{grid-template-columns:repeat(2,1fr);max-width:340px}
+footer{flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="/" class="nav-brand">MADISEN BROOKE</a>
+<div class="nav-right">
+<a href="/" class="nav-back">← BACK TO HOME</a>
+<span class="nav-social">
+<a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+<a href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</span>
+</div>
+</nav>
+
+<main>
+
+<section class="gallery-hero reveal">
+<p class="gallery-breadcrumb"><a href="/#portfolio">PORTFOLIO</a> &nbsp;/&nbsp; <span id="galleryCrumb">FAMILIES</span></p>
+<h1 class="gallery-title" id="galleryTitle">FAMILIES</h1>
+<div class="gallery-rule"></div>
+<p class="gallery-epigraph" id="galleryEpigraph">connection in the everyday</p>
+</section>
+
+<section class="gallery-photos reveal" id="galleryPhotos">
+<div class="gallery-empty">
+<span class="empty-mark">Selected work — coming soon</span>
+<p>This collection is being curated.<br>Reach out to see the most recent sessions.</p>
+</div>
+</section>
+
+<section class="gallery-cta-block reveal">
+<p class="cta-intro">Like what you see?</p>
+<a href="/#inquire" class="session-cta" id="inquireLink">Inquire about a session</a>
+</section>
+
+<section class="explore-more reveal">
+<p class="explore-label">Explore more</p>
+<div class="explore-tiles" id="exploreTiles"></div>
+</section>
+
+</main>
+
+<footer>
+<span>MADISENBPHOTOGRAPHY.COM</span>
+<div class="footer-social">
+<a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+<a href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</div>
+<span>&copy; 2026 MADISEN BROOKE PHOTOGRAPHY</span>
+</footer>
+
+<script>
+const CATEGORIES = {
+  family:     { title: 'FAMILIES',   crumb: 'FAMILIES',   epigraph: 'They will remember how you held them — not how you posed.', meta: 'Family' },
+  maternity:  { title: 'MATERNITY',  crumb: 'MATERNITY',  epigraph: 'Becoming, becoming, becoming — and then, somehow, they are here.', meta: 'Maternity' },
+  couples:    { title: 'COUPLES',    crumb: 'COUPLES',    epigraph: 'Love is a thousand small glances you didn’t know you were giving.', meta: 'Couples' },
+  newborn:    { title: 'NEWBORN',    crumb: 'NEWBORN',    epigraph: 'Ten fingers, ten toes, and a whole life still wrapped in itself.', meta: 'Newborn' },
+  lifestyle:  { title: 'LIFESTYLE',  crumb: 'LIFESTYLE',  epigraph: 'The laundry on the couch and the coffee gone cold — this is the good stuff.', meta: 'Lifestyle' },
+  milestones: { title: 'MILESTONES', crumb: 'MILESTONES', epigraph: 'Every year is a museum. You’ll want the exhibits later.', meta: 'Milestones' }
+};
+
+const params = new URLSearchParams(location.search);
+const cat = (params.get('cat') || '').toLowerCase();
+const data = CATEGORIES[cat] || CATEGORIES.family;
+const activeKey = CATEGORIES[cat] ? cat : 'family';
+
+document.getElementById('galleryTitle').textContent = data.title;
+document.getElementById('galleryCrumb').textContent = data.crumb;
+document.getElementById('galleryEpigraph').textContent = data.epigraph;
+document.title = data.meta + ' | Madisen Brooke Photography';
+document.getElementById('inquireLink').href = '/?cat=' + encodeURIComponent(activeKey) + '#inquire';
+
+// Build "explore more" tiles for the other 5 categories
+const exploreTiles = document.getElementById('exploreTiles');
+Object.entries(CATEGORIES).forEach(([key, val]) => {
+  if (key === activeKey) return;
+  const a = document.createElement('a');
+  a.className = 'explore-tile';
+  a.href = 'gallery.html?cat=' + encodeURIComponent(key);
+  a.setAttribute('aria-label', val.title + ' gallery');
+  a.innerHTML = '<span class="explore-cat">' + val.title + '</span>';
+  exploreTiles.appendChild(a);
+});
+
+// Scroll-reveal observer
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
