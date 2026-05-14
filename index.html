@@ -372,12 +372,12 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <p class="section-sub">moments worth remembering</p>
 </div>
 <div class="gallery-grid">
-<a class="gallery-item reveal reveal-delay-1" href="#inquire" onclick="preselectCategory('family')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">FAMILIES</span><span class="cat-cta">INQUIRE →</span></div></a>
-<a class="gallery-item reveal reveal-delay-2" href="#inquire" onclick="preselectCategory('maternity')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MATERNITY</span><span class="cat-cta">INQUIRE →</span></div></a>
-<a class="gallery-item reveal reveal-delay-3" href="#inquire" onclick="preselectCategory('couples')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">COUPLES</span><span class="cat-cta">INQUIRE →</span></div></a>
-<a class="gallery-item reveal reveal-delay-1" href="#inquire" onclick="preselectCategory('newborn')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">NEWBORN</span><span class="cat-cta">INQUIRE →</span></div></a>
-<a class="gallery-item reveal reveal-delay-2" href="#inquire" onclick="preselectCategory('lifestyle')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">LIFESTYLE</span><span class="cat-cta">INQUIRE →</span></div></a>
-<a class="gallery-item reveal reveal-delay-3" href="#inquire" onclick="preselectCategory('milestones')"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MILESTONES</span><span class="cat-cta">INQUIRE →</span></div></a>
+<a class="gallery-item reveal reveal-delay-1" href="gallery.html?cat=family"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">FAMILIES</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
+<a class="gallery-item reveal reveal-delay-2" href="gallery.html?cat=maternity"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MATERNITY</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
+<a class="gallery-item reveal reveal-delay-3" href="gallery.html?cat=couples"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">COUPLES</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
+<a class="gallery-item reveal reveal-delay-1" href="gallery.html?cat=newborn"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">NEWBORN</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
+<a class="gallery-item reveal reveal-delay-2" href="gallery.html?cat=lifestyle"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">LIFESTYLE</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
+<a class="gallery-item reveal reveal-delay-3" href="gallery.html?cat=milestones"><div class="img-wrap"></div><div class="gallery-overlay"><span class="cat-name">MILESTONES</span><span class="cat-cta">VIEW GALLERY →</span></div></a>
 </div>
 </section>
 
@@ -562,6 +562,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 // FORM
 function preselectPackage(p){setTimeout(()=>{const s=document.getElementById('sessionType');if(s)s.value=p},300)}
 function preselectCategory(c){setTimeout(()=>{const s=document.getElementById('sessionCategory');if(s)s.value=c},300)}
+(function(){const c=new URLSearchParams(location.search).get('cat');if(c)preselectCategory(c.toLowerCase())})();
 function submitForm(e){
 e.preventDefault();const f=document.getElementById('leadForm');const d=new FormData(f);const lead={};d.forEach((v,k)=>{lead[k]=v});
 const leads=JSON.parse(localStorage.getItem('mb_leads')||'[]');lead.submitted=new Date().toISOString();leads.push(lead);localStorage.setItem('mb_leads',JSON.stringify(leads));
