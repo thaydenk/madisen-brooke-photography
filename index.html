@@ -162,8 +162,7 @@ section{padding:120px 5%;position:relative}
 .inquire-email a{color:var(--mid);text-decoration:none;border-bottom:1px solid rgba(194,166,125,0.3);padding-bottom:2px;transition:border-color 0.3s}
 .inquire-email a:hover{border-color:var(--burnished)}
 .inquire-areas{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--whisper);line-height:2.2;margin-bottom:24px}
-.inquire-social a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--burnished);text-decoration:none;transition:color 0.3s}
-.inquire-social a:hover{color:var(--deep)}
+.inquire-social{display:flex;gap:14px;align-items:center;margin-top:12px}
 .booking-form{background:rgba(255,255,255,0.5);border:1px solid rgba(194,166,125,0.12);border-radius:8px;padding:40px 36px;backdrop-filter:blur(10px)}
 .booking-form h3{font-family:'Italiana',serif;font-size:24px;letter-spacing:3px;color:var(--deep);margin-bottom:6px}
 .booking-form .form-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:13px;color:var(--whisper);margin-bottom:28px}
@@ -227,6 +226,15 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 /* CURSOR */
 .cursor-glow{position:fixed;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(194,166,125,0.035),transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:opacity 0.3s}
 
+/* SOCIAL BUTTONS */
+.social-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--burnished);color:var(--burnished);text-decoration:none;transition:background 0.3s,color 0.3s,border-color 0.3s}
+.social-btn:hover{background:var(--burnished);color:var(--ivory);border-color:var(--burnished)}
+.social-btn svg{width:18px;height:18px}
+.social-btn-sm{width:32px;height:32px}
+.social-btn-sm svg{width:14px;height:14px}
+.nav-social{display:inline-flex;gap:10px;align-items:center;opacity:0;transform:translateY(-10px);animation:navIn 1s 1.1s forwards}
+.footer-social{display:inline-flex;gap:10px;align-items:center}
+
 /* RESPONSIVE */
 @media(max-width:968px){
 .hero-content{padding-top:80px}
@@ -283,6 +291,10 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <a href="#sessions">Sessions</a>
 <a href="https://madisenbrookephotography.pixieset.com" target="_blank">Client Gallery</a>
 <a href="#inquire" class="nav-cta">Inquire</a>
+<span class="nav-social">
+<a class="social-btn social-btn-sm" href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+<a class="social-btn social-btn-sm" href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</span>
 </div>
 <div class="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
 </nav>
@@ -402,7 +414,10 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <p class="section-sub" style="text-align:left;margin-top:12px">let's create something beautiful</p>
 <p class="inquire-email"><a href="mailto:hello@madisenbphotography.com">hello@madisenbphotography.com</a></p>
 <p class="inquire-areas">HOUSTON &nbsp;·&nbsp; MAGNOLIA &nbsp;·&nbsp; CYPRESS<br>THE WOODLANDS &nbsp;·&nbsp; SPRING &nbsp;·&nbsp; TOMBALL</p>
-<div class="inquire-social"><a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank">@MADISENBROOKE.PHOTOGRAPHY</a></div>
+<div class="inquire-social">
+<a class="social-btn" href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+<a class="social-btn" href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</div>
 <div style="margin-top:32px"><p style="font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--whisper);line-height:1.8">I typically respond within 24 hours.<br>I can't wait to hear your story.</p></div>
 </div>
 <div class="reveal from-right">
@@ -427,7 +442,14 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <section class="client-banner reveal"><h3>CLIENT GALLERY</h3><p>Already had your session? View and download your images below.</p><a href="https://madisenbrookephotography.pixieset.com" target="_blank">ACCESS YOUR GALLERY →</a></section>
 
 <!-- FOOTER -->
-<footer><span>MADISENBPHOTOGRAPHY.COM</span><span>&copy; 2026 MADISEN BROOKE PHOTOGRAPHY</span></footer>
+<footer>
+<span>MADISENBPHOTOGRAPHY.COM</span>
+<div class="footer-social">
+<a class="social-btn social-btn-sm" href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+<a class="social-btn social-btn-sm" href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</div>
+<span>&copy; 2026 MADISEN BROOKE PHOTOGRAPHY</span>
+</footer>
 
 <script>
 // SCROLL REVEAL
