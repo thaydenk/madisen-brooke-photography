@@ -23,13 +23,18 @@ export function getInlineScripts() {
  * Build a jsdom Window for the site. By default we run inline scripts so
  * window.submitForm etc. are available, with the noisy desktop-only effects
  * (particles, parallax, cursor glow) disabled via a mobile viewport, and
- * navigation captured instead of attempted.
+ * a fetch stub that captures Netlify Form POSTs into window.__fetchCalls.
+ *
+ * We also rewrite `window.location.href=` in the inline script so the mailto
+ * fallback (fired only if fetch rejects) writes to window.__navigatedTo
+ * rather than triggering a jsdom navigation error.
  */
-export function loadPage({ runScripts = true, viewportWidth = 800 } = {}) {
-  // jsdom's window.location.href setter is non-configurable, so we can't
-  // install a spy there. Instead, rewrite the inline script so navigation
-  // writes to window.__navigatedTo, which the tests then assert against.
-  // This is a test-only transform — index.html on disk is untouched.
+export function loadPage({
+  runScripts = true,
+  viewportWidth = 800,
+  fetchResponse = { ok: true, status: 200 },
+  fetchFailsWith = null,
+} = {}) {
   const html = readIndexHtml().replace(
     /window\.location\.href\s*=\s*/g,
     'window.__navigatedTo=',
@@ -55,8 +60,30 @@ export function loadPage({ runScripts = true, viewportWidth = 800 } = {}) {
         configurable: true,
         value: 600,
       });
+
+      // Stub fetch to capture POST bodies without hitting the network.
+      window.__fetchCalls = [];
+      window.fetch = (url, init = {}) => {
+        window.__fetchCalls.push({ url, init });
+        if (fetchFailsWith) return Promise.reject(fetchFailsWith);
+        return Promise.resolve(fetchResponse);
+      };
     },
   });
 
   return { dom, window: dom.window, document: dom.window.document };
+}
+
+/**
+ * Wait until the given predicate returns truthy or the timeout expires.
+ * Handy for awaiting async DOM effects driven by Promise chains.
+ */
+export async function waitFor(fn, { timeout = 500, interval = 10 } = {}) {
+  const start = Date.now();
+  while (Date.now() - start < timeout) {
+    const v = fn();
+    if (v) return v;
+    await new Promise((r) => setTimeout(r, interval));
+  }
+  throw new Error(`waitFor timed out after ${timeout}ms`);
 }
