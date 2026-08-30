@@ -5,6 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madisen Brooke Photography | Magnolia, Texas</title>
 <meta name="description" content="Madisen Brooke Photography — families, maternity, couples, newborn, lifestyle, and milestone photography in Magnolia, Houston, Cypress, and The Woodlands, Texas.">
+<link rel="canonical" href="https://madisenbphotography.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Madisen Brooke Photography">
+<meta property="og:url" content="https://madisenbphotography.com/">
+<meta property="og:title" content="Madisen Brooke Photography | Magnolia, Texas">
+<meta property="og:description" content="Family, maternity, couples, newborn, lifestyle, and milestone photography in Magnolia, Houston, Cypress, and The Woodlands, Texas.">
+<meta property="og:image" content="https://madisenbphotography.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Madisen Brooke Photography">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Madisen Brooke Photography | Magnolia, Texas">
+<meta name="twitter:description" content="Family, maternity, couples, newborn, lifestyle, and milestone photography in Magnolia, Houston, Cypress, and The Woodlands, Texas.">
+<meta name="twitter:image" content="https://madisenbphotography.com/og-image.jpg">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://madisenbphotography.com/#business",
+  "name": "Madisen Brooke Photography",
+  "description": "Family, maternity, couples, newborn, lifestyle, and milestone photography in Magnolia, Houston, Cypress, and The Woodlands, Texas.",
+  "url": "https://madisenbphotography.com/",
+  "image": "https://madisenbphotography.com/og-image.jpg",
+  "email": "hello@madisenbphotography.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Magnolia",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Magnolia" },
+    { "@type": "City", "name": "Houston" },
+    { "@type": "City", "name": "Cypress" },
+    { "@type": "City", "name": "The Woodlands" },
+    { "@type": "City", "name": "Spring" },
+    { "@type": "City", "name": "Tomball" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/madisenbrooke.photography",
+    "https://www.facebook.com/share/1MXgpejTeB/"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -167,6 +218,19 @@ a.gallery-item{text-decoration:none;color:inherit;display:block}
 .session-cta span{position:relative;z-index:1}
 .sessions-note{text-align:center;margin-top:40px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--whisper)}
 
+/* TESTIMONIALS */
+#testimonials{background:linear-gradient(180deg,var(--ivory),var(--haze) 60%,var(--ivory));padding:120px 5%}
+.testimonials-header{text-align:center;margin-bottom:64px}
+.testimonials-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.testimonial{background:rgba(255,255,255,0.55);border:1px solid rgba(194,166,125,0.16);border-radius:6px;padding:36px 30px 28px;position:relative;transition:transform 0.5s cubic-bezier(0.23,1,0.32,1),box-shadow 0.5s,border-color 0.4s;display:flex;flex-direction:column;gap:18px;text-align:left}
+.testimonial:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(61,53,41,0.06);border-color:rgba(194,166,125,0.35)}
+.testimonial::before{content:'\201C';position:absolute;top:8px;left:22px;font-family:'Italiana',serif;font-size:64px;line-height:1;color:var(--burnished);opacity:0.35}
+.testimonial p{font-family:'Crimson Pro',serif;font-style:italic;font-size:16px;line-height:1.65;color:var(--mid);margin-top:24px}
+.testimonial footer{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2.5px;color:var(--whisper);text-transform:uppercase;padding-top:14px;border-top:1px solid rgba(194,166,125,0.18);margin-top:auto}
+.testimonial cite{font-style:normal;color:var(--deep)}
+.testimonial .session-type{color:var(--burnished);margin-left:6px}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
 /* INQUIRE — FORM */
 #inquire{background:linear-gradient(180deg,var(--ivory),var(--haze));padding:120px 5%}
 .inquire-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
@@ -274,12 +338,15 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 .nav-links{display:none}
 .hamburger{display:flex}
 .marquee-track span{font-size:20px}
+.testimonials-grid{grid-template-columns:1fr;max-width:520px;gap:20px}
 }
 @media(max-width:968px){.geo-shapes{display:none}.particles{display:none}.cursor-glow{display:none}.hero-bg .orb{display:none}}
 @media(max-width:600px){
 .gallery-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
 .form-row{grid-template-columns:1fr}
 footer{flex-direction:column;gap:8px;text-align:center}
+#testimonials{padding:80px 5%}
+.testimonial{padding:32px 24px 24px}
 }
 </style>
 </head>
@@ -441,6 +508,31 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <p class="sessions-note reveal">ALL SESSIONS INCLUDE PROFESSIONAL EDITING &nbsp;·&nbsp; ONLINE GALLERY &nbsp;·&nbsp; PRINT RELEASE</p>
 </section>
 
+<!-- TESTIMONIALS
+     Placeholder quotes — swap the <p> and <cite> content with real client
+     words + first-name/initial attributions before sharing widely. -->
+<section id="testimonials">
+<div class="section-header reveal testimonials-header">
+<h2 class="section-title">KIND WORDS</h2>
+<div class="section-rule"></div>
+<p class="section-sub">from the families I've had the honor of photographing</p>
+</div>
+<div class="testimonials-grid">
+<blockquote class="testimonial reveal reveal-delay-1">
+<p>Madisen captured our family in a way we've never been captured before. She has an eye for the moments in between.</p>
+<footer>— <cite>Sarah M.</cite><span class="session-type">Family Session</span></footer>
+</blockquote>
+<blockquote class="testimonial reveal reveal-delay-2">
+<p>I was nervous about maternity photos, but it felt like a good conversation with a friend. Every image is one I want to frame.</p>
+<footer>— <cite>Emma K.</cite><span class="session-type">Maternity Session</span></footer>
+</blockquote>
+<blockquote class="testimonial reveal reveal-delay-3">
+<p>She saw the small quiet things — my son's hand, the way he leaned into me. We'll have these on our walls for the rest of our lives.</p>
+<footer>— <cite>The Rodriguez Family</cite><span class="session-type">Lifestyle Session</span></footer>
+</blockquote>
+</div>
+</section>
+
 <!-- INQUIRE -->
 <section id="inquire">
 <div class="inquire-grid">
@@ -477,7 +569,9 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="booking-form" id="bookingForm">
 <h3>REQUEST A SESSION</h3>
 <p class="form-sub">Fill out the details below and I'll be in touch to plan your perfect session.</p>
-<form id="leadForm" onsubmit="submitForm(event)">
+<form id="leadForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitForm(event)">
+<input type="hidden" name="form-name" value="booking">
+<p class="hp-field" aria-hidden="true"><label>Don't fill this out if you're human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <div class="form-row"><div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" placeholder="Your first name" required></div><div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" name="lastName" placeholder="Your last name" required></div></div>
 <div class="form-row"><div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div><div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(555) 123-4567"></div></div>
 <div class="form-row"><div class="form-group"><label for="sessionType">Session Package *</label><select id="sessionType" name="sessionType" required><option value="" disabled selected>Select a package</option><option value="mini">Mini — 30 min / 15 images</option><option value="signature">Signature — 60 min / 40 images</option><option value="luxe">Luxe — 90+ min / 75+ images</option><option value="unsure">Not sure yet — help me decide</option></select></div><div class="form-group"><label for="sessionCategory">Session Type</label><select id="sessionCategory" name="sessionCategory"><option value="" disabled selected>What are we celebrating?</option><option value="family">Family</option><option value="maternity">Maternity</option><option value="couples">Couples</option><option value="newborn">Newborn</option><option value="lifestyle">Lifestyle</option><option value="milestones">Milestones</option><option value="headshots">Headshots</option><option value="other">Other</option></select></div></div>
@@ -566,12 +660,15 @@ function preselectCategory(c){setTimeout(()=>{const s=document.getElementById('s
 function submitForm(e){
 e.preventDefault();const f=document.getElementById('leadForm');const d=new FormData(f);const lead={};d.forEach((v,k)=>{lead[k]=v});
 const leads=JSON.parse(localStorage.getItem('mb_leads')||'[]');lead.submitted=new Date().toISOString();leads.push(lead);localStorage.setItem('mb_leads',JSON.stringify(leads));
-const subj=encodeURIComponent('New Session Request — '+lead.firstName+' '+lead.lastName);
-const body=encodeURIComponent('New booking request from madisenbphotography.com\n\nName: '+lead.firstName+' '+lead.lastName+'\nEmail: '+lead.email+'\nPhone: '+(lead.phone||'N/A')+'\nPackage: '+lead.sessionType+'\nSession Type: '+(lead.sessionCategory||'N/A')+'\nPreferred Date: '+(lead.preferredDate||'Flexible')+'\nReferral: '+(lead.referral||'N/A')+'\nMessage: '+(lead.message||'None'));
-window.location.href='mailto:hello@madisenbphotography.com?subject='+subj+'&body='+body;
+const btn=f.querySelector('button[type="submit"]');if(btn){btn.disabled=true;btn.dataset.orig=btn.textContent;btn.textContent='Sending…'}
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString()}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);
 document.getElementById('bookingForm').querySelector('form').style.display='none';
 document.getElementById('formSuccess').style.display='block';
-setTimeout(()=>{f.reset();document.getElementById('bookingForm').querySelector('form').style.display='block';document.getElementById('formSuccess').style.display='none'},8000);
+setTimeout(()=>{f.reset();if(btn){btn.disabled=false;btn.textContent=btn.dataset.orig||'Send My Request'}document.getElementById('bookingForm').querySelector('form').style.display='block';document.getElementById('formSuccess').style.display='none'},8000);
+}).catch(err=>{console.error('Booking submit failed',err);if(btn){btn.disabled=false;btn.textContent=btn.dataset.orig||'Send My Request'}
+const subj=encodeURIComponent('New Session Request — '+lead.firstName+' '+lead.lastName);
+const body=encodeURIComponent('New booking request from madisenbphotography.com\n\nName: '+lead.firstName+' '+lead.lastName+'\nEmail: '+lead.email+'\nPhone: '+(lead.phone||'N/A')+'\nPackage: '+lead.sessionType+'\nSession Type: '+(lead.sessionCategory||'N/A')+'\nPreferred Date: '+(lead.preferredDate||'Flexible')+'\nReferral: '+(lead.referral||'N/A')+'\nMessage: '+(lead.message||'None'));
+window.location.href='mailto:hello@madisenbphotography.com?subject='+subj+'&body='+body});
 }
 
 // MOBILE NAV
