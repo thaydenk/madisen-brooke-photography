@@ -12,26 +12,32 @@ describe('visitor interactions',()=>{
     expect(menu.getAttribute('aria-expanded')).toBe('false');
     expect(nav.classList.contains('open')).toBe(false);
   });
-  test('each portfolio button opens its matching reference photograph',()=>{
-    const {document}=loadPage();
+  test('portfolio opens the selected photo and navigates between photographs',()=>{
+    const {window,document}=loadPage();
     const dialog=document.querySelector('dialog');
     dialog.showModal=vi.fn(); dialog.close=vi.fn();
-    for(const story of document.querySelectorAll('.story')){
+    const stories=[...document.querySelectorAll('.story')];
+    for(const story of stories){
       story.click();
       expect(dialog.querySelector('h2').textContent).toBe(story.dataset.story);
-      expect(dialog.querySelector('svg').getAttribute('viewBox')).toBe(story.dataset.crop);
+      expect(dialog.querySelector('img').getAttribute('src')).toBe(story.dataset.image);
     }
     expect(dialog.showModal).toHaveBeenCalledTimes(4);
+    document.querySelector('#photo-next').click();
+    expect(dialog.querySelector('img').getAttribute('src')).toBe(stories[0].dataset.image);
+    dialog.dispatchEvent(new window.KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true}));
+    expect(dialog.querySelector('img').getAttribute('src')).toBe(stories[3].dataset.image);
     dialog.querySelector('.close-dialog').click();
     expect(dialog.close).toHaveBeenCalledTimes(1);
   });
-  test('all reference photographs have accessible descriptions',()=>{
+  test('all supplied photos have accessible descriptions and reference images are gone',()=>{
     const {document}=loadPage();
-    const photos=[...document.querySelectorAll('.photo[data-crop]')];
-    expect(photos.length).toBeGreaterThan(0);
-    for(const photo of photos){
-      expect(photo.querySelector('svg').getAttribute('aria-label')).toBeTruthy();
-      expect(photo.querySelector('image').getAttribute('href')).toBe('brand-reference.png');
-    }
+    const photos=[...document.querySelectorAll('.photo img')];
+    expect(photos.length).toBe(6);
+    for(const image of photos) expect(image.alt).toBeTruthy();
+    const sources=new Set(photos.map(image=>image.getAttribute('src')));
+    expect(sources.size).toBe(4);
+    expect(document.body.textContent).not.toContain('supplied brand board');
+    expect(document.querySelector('[data-crop]')).toBeNull();
   });
 });
