@@ -25,12 +25,14 @@ After adding photos, the site HTML (`index.html`) needs to be updated to referen
 
 ## Deployment
 
-This site auto-deploys to Netlify when changes are pushed to `main`.
+This site is served by **GitHub Pages** from the `main` branch, with the custom domain set by the `CNAME` file (madisenbphotography.com). Pushes to `main` deploy automatically.
+
+Note: the booking form targets Netlify Forms, which GitHub Pages does not run — on this host the form falls back to its `mailto:` path. Swap to Formspree/Web3Forms if staying on Pages.
 
 ## Tech Stack
 
-- Single-file HTML/CSS/JS (no build step, no dependencies)
+- Static HTML/CSS/JS (no build step, no runtime dependencies; `index.html` + `gallery.html`)
 - Google Fonts (Italiana, Crimson Pro, DM Mono, Instrument Sans, Lora)
-- Chart.js-free, framework-free
-- Booking form submits via mailto (upgrade to Formspree/Netlify Forms for server-side)
+- Framework-free
+- Test suite: Vitest + jsdom, html-validate, axe-core (`npm test`)
 - Client gallery links to Pixieset (optional)
