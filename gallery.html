@@ -28,8 +28,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 /* MADISEN BROOKE DESIGN SYSTEM — brand tokens + component aliases */
 :root{
---ivory:#FAF7F1;--sand:#E4DACB;--taupe:#C8B9A4;--clay:#A9896B;--clay-deep:#8B6B50;--olive:#7A7D5F;--charcoal:#2E2A23;
---haze:#F3EDE2;--rose:#EFE8DC;--champagne:var(--sand);--gold:var(--taupe);--burnished:var(--clay);--bronze:var(--clay-deep);--deep:var(--charcoal);--mid:#5C5546;--whisper:#857B6A;--line:#DDD4C6;
+--ivory:#F6F3EC;--sand:#E5DCCD;--taupe:#B9AB98;--clay:#8F6E55;--clay-deep:#73543F;--olive:#5E6147;--charcoal:#26221B;
+--haze:#EFE9DD;--rose:#EAE2D4;--champagne:var(--sand);--gold:var(--taupe);--burnished:var(--clay);--bronze:var(--clay-deep);--deep:var(--charcoal);--mid:#565042;--whisper:#7E7363;--line:#D8CFC0;
 --bluebonnet:#8A94B8;--bb-tip:#F6F1E7;--sage:var(--olive);--orn-bloom:#EDE4D4}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--deep);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
@@ -37,9 +37,10 @@ body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--dee
 a{color:inherit}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(251,248,244,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(194,166,125,0.08)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(246,243,236,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(143,110,85,0.08)}
 .nav-brand{font-family:'Playfair Display',serif;font-size:18px;letter-spacing:4px;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center}
 .nav-mono{width:32px;height:24px;margin-right:10px;color:var(--burnished);flex:none}
+.oo{letter-spacing:-0.24em;margin-right:0.2em}
 .nav-right{display:flex;align-items:center;gap:24px}
 .nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color 0.3s}
 .nav-back:hover{color:var(--burnished)}
@@ -65,7 +66,7 @@ main{flex:1;padding-top:80px}
 /* PHOTOS */
 .gallery-photos{padding:48px 5% 96px;max-width:1200px;margin:0 auto;width:100%}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.photo-tile{aspect-ratio:4/5;background:linear-gradient(170deg,var(--champagne),var(--gold));border-radius:4px;overflow:hidden;position:relative;border:1px solid rgba(194,166,125,0.12)}
+.photo-tile{aspect-ratio:4/5;background:linear-gradient(170deg,var(--champagne),var(--gold));border-radius:4px;overflow:hidden;position:relative;border:1px solid rgba(143,110,85,0.12)}
 .photo-tile:nth-child(4n+2){aspect-ratio:3/4}
 .photo-tile:nth-child(4n+3){aspect-ratio:1/1.15}
 .photo-tile img{width:100%;height:100%;object-fit:cover;display:block}
@@ -86,15 +87,15 @@ main{flex:1;padding-top:80px}
 .explore-more{padding:96px 5% 64px;text-align:center;max-width:1200px;margin:0 auto;width:100%}
 .explore-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--whisper);margin-bottom:32px;text-transform:uppercase}
 .explore-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:900px;margin:0 auto}
-.explore-tile{display:block;text-decoration:none;color:inherit;border-radius:4px;overflow:hidden;position:relative;aspect-ratio:1/1.25;background:linear-gradient(170deg,var(--champagne),var(--gold));border:1px solid rgba(194,166,125,0.12);transition:transform 0.5s cubic-bezier(0.23,1,0.32,1)}
+.explore-tile{display:block;text-decoration:none;color:inherit;border-radius:4px;overflow:hidden;position:relative;aspect-ratio:1/1.25;background:linear-gradient(170deg,var(--champagne),var(--gold));border:1px solid rgba(143,110,85,0.12);transition:transform 0.5s cubic-bezier(0.23,1,0.32,1)}
 .explore-tile:hover{transform:translateY(-3px)}
-.explore-tile::after{content:'';position:absolute;inset:0;background:rgba(61,53,41,0.25);opacity:0;transition:opacity 0.4s}
+.explore-tile::after{content:'';position:absolute;inset:0;background:rgba(38,34,27,0.25);opacity:0;transition:opacity 0.4s}
 .explore-tile:hover::after{opacity:1}
 .explore-tile .explore-cat{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(14px,1.4vw,18px);letter-spacing:3px;color:var(--deep);z-index:1;text-align:center;padding:0 8px}
 .explore-tile:hover .explore-cat{color:rgba(255,255,255,0.95)}
 
 /* FOOTER */
-footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(194,166,125,0.08);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--whisper)}
+footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(143,110,85,0.08);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--whisper)}
 .footer-social{display:inline-flex;gap:10px;align-items:center}
 .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--burnished);color:var(--burnished);text-decoration:none;transition:background 0.3s,color 0.3s}
 .footer-social a:hover{background:var(--burnished);color:var(--ivory)}
@@ -189,7 +190,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 </svg>
 
 <nav>
-<a href="/" class="nav-brand"><svg class="nav-mono" aria-hidden="true"><use href="#orn-monogram"/></svg>MADISEN BROOKE</a>
+<a href="/" class="nav-brand"><svg class="nav-mono" aria-hidden="true"><use href="#orn-monogram"/></svg><span>MADISEN&nbsp;BR<span class="oo">OO</span>KE</span></a>
 <div class="nav-right">
 <a href="/" class="nav-back">← BACK TO HOME</a>
 <span class="nav-social">
