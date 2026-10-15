@@ -192,7 +192,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 <nav>
 <a href="/" class="nav-brand"><svg class="nav-mono" aria-hidden="true"><use href="#orn-monogram"/></svg><span>MADISEN&nbsp;BR<span class="oo">OO</span>KE</span></a>
 <div class="nav-right">
-<a href="/" class="nav-back">← BACK TO HOME</a>
+<a href="/" class="nav-back">BACK TO HOME</a>
 <span class="nav-social">
 <a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
 <a href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -243,6 +243,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 
 <script>
 const CATEGORIES = {
+  portraits: { title: 'PORTRAITS', crumb: 'PORTRAITS', epigraph: 'A little light, a little personality, entirely you.', meta: 'Portraits' },
   family:     { title: 'FAMILIES',   crumb: 'FAMILIES',   epigraph: 'They will remember how you held them — not how you posed.', meta: 'Family' },
   maternity:  { title: 'MATERNITY',  crumb: 'MATERNITY',  epigraph: 'Becoming, becoming, becoming — and then, somehow, they are here.', meta: 'Maternity' },
   couples:    { title: 'COUPLES',    crumb: 'COUPLES',    epigraph: 'Love is a thousand small glances you didn’t know you were giving.', meta: 'Couples' },
@@ -260,7 +261,25 @@ document.getElementById('galleryTitle').textContent = data.title;
 document.getElementById('galleryCrumb').textContent = data.crumb;
 document.getElementById('galleryEpigraph').textContent = data.epigraph;
 document.title = data.meta + ' | Madisen Brooke Photography';
-document.getElementById('inquireLink').href = '/?cat=' + encodeURIComponent(activeKey) + '#inquire';
+document.getElementById('inquireLink').href = '/#contact';
+
+
+const PHOTOS = {
+ family: [{src:'photos/families/family-autumn.webp',alt:'Family of seven beneath sunlit autumn trees'}],
+ portraits: [
+ {src:'photos/portraits/madisen-outdoors.webp',alt:'Woman in a brown hat against green foliage'},
+ {src:'photos/portraits/portrait-soft-light.webp',alt:'Black and white portrait with curled hair and a downward gaze'},
+ {src:'photos/portraits/portrait-black-white.webp',alt:'Black and white portrait of a smiling woman in a knit hat'}]
+};
+const selectedPhotos=PHOTOS[activeKey]||[];
+if(selectedPhotos.length){
+ const grid=document.createElement('div');grid.className='gallery-grid';
+ selectedPhotos.forEach(photo=>{
+  const link=document.createElement('a');link.className='photo-tile';link.href=photo.src;link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','View full photograph: '+photo.alt);
+  const img=document.createElement('img');img.src=photo.src;img.alt=photo.alt;img.loading='lazy';img.decoding='async';link.append(img);grid.append(link);
+ });
+ document.getElementById('galleryPhotos').replaceChildren(grid);
+}
 
 // Build "explore more" tiles for the other 5 categories
 const exploreTiles = document.getElementById('exploreTiles');
