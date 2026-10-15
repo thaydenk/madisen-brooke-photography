@@ -105,6 +105,7 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 .orn-hero-tl{top:4px;left:-60px;width:140px;height:140px;color:var(--gold);opacity:0.5;transform:scaleY(-1)}
 .orn-hero-br{bottom:-10px;right:-60px;width:140px;height:140px;color:var(--gold);opacity:0.5;transform:scaleX(-1)}
 .orn-crest{display:block;width:17px;height:20px;margin:0 auto 18px;color:var(--burnished);opacity:0.75}
+.orn-gal-bloom{top:48%;left:50%;width:min(420px,80vw);height:min(420px,80vw);transform:translate(-50%,-50%);opacity:0.12}
 
 /* RESPONSIVE */
 @media(max-width:968px){
@@ -152,6 +153,30 @@ footer{flex-direction:column;gap:10px;text-align:center}
 <circle fill="currentColor" cx="124" cy="68" r="1.7"/>
 <circle fill="currentColor" cx="152" cy="12" r="2"/>
 </symbol>
+<symbol id="orn-magnolia" viewBox="0 0 120 120">
+<g style="fill:var(--bb-tip,#F6F1E7);stroke:var(--gold,#D4C4AA)" stroke-width="1">
+<path id="mg-p" d="M60 60C52 44 52 26 60 12C68 26 68 44 60 60Z"/>
+<use href="#mg-p" transform="rotate(45 60 60)"/>
+<use href="#mg-p" transform="rotate(90 60 60)"/>
+<use href="#mg-p" transform="rotate(135 60 60)"/>
+<use href="#mg-p" transform="rotate(180 60 60)"/>
+<use href="#mg-p" transform="rotate(225 60 60)"/>
+<use href="#mg-p" transform="rotate(270 60 60)"/>
+<use href="#mg-p" transform="rotate(315 60 60)"/>
+</g>
+<g transform="rotate(22.5 60 60)" style="fill:var(--champagne,#E8DDD2);stroke:var(--burnished,#C2A67D)" stroke-width="0.8">
+<path id="mg-q" d="M60 60C55 49 55 37 60 27C65 37 65 49 60 60Z"/>
+<use href="#mg-q" transform="rotate(45 60 60)"/>
+<use href="#mg-q" transform="rotate(90 60 60)"/>
+<use href="#mg-q" transform="rotate(135 60 60)"/>
+<use href="#mg-q" transform="rotate(180 60 60)"/>
+<use href="#mg-q" transform="rotate(225 60 60)"/>
+<use href="#mg-q" transform="rotate(270 60 60)"/>
+<use href="#mg-q" transform="rotate(315 60 60)"/>
+</g>
+<circle cx="60" cy="60" r="7" style="fill:var(--burnished,#C2A67D)" opacity="0.85"/>
+<circle cx="60" cy="60" r="3" style="fill:var(--bronze,#A8926A)"/>
+</symbol>
 </svg>
 
 <nav>
@@ -168,6 +193,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 <main>
 
 <section class="gallery-hero reveal">
+<svg class="orn orn-gal-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <svg class="orn orn-hero-tl" aria-hidden="true"><use href="#orn-corner"/></svg>
 <svg class="orn orn-hero-br" aria-hidden="true"><use href="#orn-corner"/></svg>
 <p class="gallery-breadcrumb"><a href="/#portfolio">PORTFOLIO</a> &nbsp;/&nbsp; <span id="galleryCrumb">FAMILIES</span></p>

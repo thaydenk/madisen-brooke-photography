@@ -281,8 +281,8 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 
 /* PARTICLES */
 .particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.particle{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(194,166,125,0.35),transparent);animation:float linear infinite}
-@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:0.8}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+.particle{position:absolute;border-radius:74% 10% 74% 10%;background:linear-gradient(135deg,#F7F1E6,#EADFCE);border:1px solid rgba(194,166,125,0.35);animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100vh) rotate(0deg) scale(0);opacity:0}10%{opacity:1}90%{opacity:0.8}100%{transform:translateY(-10vh) rotate(320deg) scale(1);opacity:0}}
 
 /* ANIMATED GEOMETRIC SHAPES — subtle, continuous */
 .geo-shapes{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
@@ -327,8 +327,12 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 
 /* FLORAL ORNAMENTS — bluebonnets, fleur-de-lis, cream botanicals */
 .orn{position:absolute;pointer-events:none}
-.orn-hero-tl{top:88px;left:4%;width:170px;height:170px;color:var(--gold);opacity:0.55;transform:scaleY(-1)}
-.orn-hero-br{bottom:48px;right:4%;width:170px;height:170px;color:var(--gold);opacity:0.55;transform:scaleX(-1)}
+.orn-hero-tl{top:88px;left:4%;width:210px;height:210px;color:var(--gold);opacity:0.6;transform:scaleY(-1)}
+.orn-hero-br{bottom:48px;right:4%;width:210px;height:210px;color:var(--gold);opacity:0.6;transform:scaleX(-1)}
+.orn-hero-bloom{top:50%;left:50%;width:min(560px,82vw);height:min(560px,82vw);transform:translate(-50%,-52%);opacity:0.13}
+.orn-about-bloom{top:30px;right:-70px;width:320px;height:320px;opacity:0.12}
+.orn-card-bloom{display:block;width:30px;height:30px;margin:0 auto 12px;opacity:0.9}
+.m-orn svg{width:13px;height:15px;color:rgba(107,95,80,0.45);vertical-align:middle}
 .orn-crest{display:block;width:17px;height:20px;margin:0 auto 16px;color:var(--burnished);opacity:0.75}
 .orn-crest-left{margin:0 0 16px}
 .quote-interlude{position:relative}
@@ -358,6 +362,7 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 .testimonials-grid{grid-template-columns:1fr;max-width:520px;gap:20px}
 .orn-hero-tl,.orn-hero-br{width:104px;height:104px;opacity:0.45}
 .orn-quote-l,.orn-quote-r{display:none}
+.orn-about-bloom{display:none}
 }
 @media(max-width:968px){.geo-shapes{display:none}.particles{display:none}.cursor-glow{display:none}.hero-bg .orb{display:none}}
 @media(max-width:600px){
@@ -425,6 +430,30 @@ footer{flex-direction:column;gap:8px;text-align:center}
 </g>
 <use href="#orn-fleur" x="149" y="3" width="22" height="26"/>
 </symbol>
+<symbol id="orn-magnolia" viewBox="0 0 120 120">
+<g style="fill:var(--bb-tip,#F6F1E7);stroke:var(--gold,#D4C4AA)" stroke-width="1">
+<path id="mg-p" d="M60 60C52 44 52 26 60 12C68 26 68 44 60 60Z"/>
+<use href="#mg-p" transform="rotate(45 60 60)"/>
+<use href="#mg-p" transform="rotate(90 60 60)"/>
+<use href="#mg-p" transform="rotate(135 60 60)"/>
+<use href="#mg-p" transform="rotate(180 60 60)"/>
+<use href="#mg-p" transform="rotate(225 60 60)"/>
+<use href="#mg-p" transform="rotate(270 60 60)"/>
+<use href="#mg-p" transform="rotate(315 60 60)"/>
+</g>
+<g transform="rotate(22.5 60 60)" style="fill:var(--champagne,#E8DDD2);stroke:var(--burnished,#C2A67D)" stroke-width="0.8">
+<path id="mg-q" d="M60 60C55 49 55 37 60 27C65 37 65 49 60 60Z"/>
+<use href="#mg-q" transform="rotate(45 60 60)"/>
+<use href="#mg-q" transform="rotate(90 60 60)"/>
+<use href="#mg-q" transform="rotate(135 60 60)"/>
+<use href="#mg-q" transform="rotate(180 60 60)"/>
+<use href="#mg-q" transform="rotate(225 60 60)"/>
+<use href="#mg-q" transform="rotate(270 60 60)"/>
+<use href="#mg-q" transform="rotate(315 60 60)"/>
+</g>
+<circle cx="60" cy="60" r="7" style="fill:var(--burnished,#C2A67D)" opacity="0.85"/>
+<circle cx="60" cy="60" r="3" style="fill:var(--bronze,#A8926A)"/>
+</symbol>
 </svg>
 
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -475,6 +504,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
+<svg class="orn orn-hero-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <svg class="orn orn-hero-tl" aria-hidden="true"><use href="#orn-corner"/></svg>
 <svg class="orn orn-hero-br" aria-hidden="true"><use href="#orn-corner"/></svg>
 </div>
@@ -496,8 +526,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <!-- MARQUEE -->
 <div class="marquee">
 <div class="marquee-track">
-<span>FAMILIES</span><span>·</span><span>MATERNITY</span><span>·</span><span>COUPLES</span><span>·</span><span>NEWBORN</span><span>·</span><span>LIFESTYLE</span><span>·</span><span>MILESTONES</span><span>·</span>
-<span>FAMILIES</span><span>·</span><span>MATERNITY</span><span>·</span><span>COUPLES</span><span>·</span><span>NEWBORN</span><span>·</span><span>LIFESTYLE</span><span>·</span><span>MILESTONES</span><span>·</span>
+<span>FAMILIES</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>MATERNITY</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>COUPLES</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>NEWBORN</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>LIFESTYLE</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>MILESTONES</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span>
+<span>FAMILIES</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>MATERNITY</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>COUPLES</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>NEWBORN</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>LIFESTYLE</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>MILESTONES</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span>
 </div>
 </div>
 
@@ -532,6 +562,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 
 <!-- ABOUT -->
 <section id="about">
+<svg class="orn orn-about-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <div class="about-grid">
 <div class="about-image reveal from-left">
 <div class="about-label">BEHIND THE LENS</div>
@@ -553,8 +584,8 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <!-- MARQUEE 2 -->
 <div class="marquee">
 <div class="marquee-track" style="animation-direction:reverse">
-<span>MAGNOLIA</span><span>·</span><span>HOUSTON</span><span>·</span><span>CYPRESS</span><span>·</span><span>THE WOODLANDS</span><span>·</span><span>SPRING</span><span>·</span><span>TOMBALL</span><span>·</span>
-<span>MAGNOLIA</span><span>·</span><span>HOUSTON</span><span>·</span><span>CYPRESS</span><span>·</span><span>THE WOODLANDS</span><span>·</span><span>SPRING</span><span>·</span><span>TOMBALL</span><span>·</span>
+<span>MAGNOLIA</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>HOUSTON</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>CYPRESS</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>THE WOODLANDS</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>SPRING</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>TOMBALL</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span>
+<span>MAGNOLIA</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>HOUSTON</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>CYPRESS</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>THE WOODLANDS</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>SPRING</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span><span>TOMBALL</span><span class="m-orn"><svg aria-hidden="true"><use href="#orn-fleur"/></svg></span>
 </div>
 </div>
 
@@ -567,6 +598,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 </div>
 <div class="sessions-grid">
 <div class="session-card reveal reveal-delay-1">
+<svg class="orn-card-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <h3 class="session-name">MINI</h3><div class="session-rule"></div>
 <p class="session-duration">30 MINUTES</p>
 <p class="session-details">1 location<br>15 edited images</p>
@@ -574,6 +606,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <a href="#inquire" class="session-cta" onclick="preselectPackage('mini')"><span>Book This Session</span></a>
 </div>
 <div class="session-card reveal reveal-delay-2">
+<svg class="orn-card-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <h3 class="session-name">SIGNATURE</h3><div class="session-rule"></div>
 <p class="session-duration">60 MINUTES</p>
 <p class="session-details">1–2 locations<br>40 edited images</p>
@@ -581,6 +614,7 @@ footer{flex-direction:column;gap:8px;text-align:center}
 <a href="#inquire" class="session-cta" onclick="preselectPackage('signature')"><span>Book This Session</span></a>
 </div>
 <div class="session-card reveal reveal-delay-3">
+<svg class="orn-card-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <h3 class="session-name">LUXE</h3><div class="session-rule"></div>
 <p class="session-duration">90+ MINUTES</p>
 <p class="session-details">Multiple locations<br>75+ edited images</p>
@@ -721,7 +755,7 @@ function spawn(){
 if(count>=MAX)return;count++;
 const p=document.createElement('div');p.className='particle';
 p.style.left=Math.random()*100+'%';
-const s=Math.random()*3+1;p.style.width=p.style.height=s+'px';
+const s=Math.random()*6+7;p.style.width=p.style.height=s+'px';
 p.style.animationDuration=(Math.random()*14+8)+'s';
 p.style.animationDelay=(Math.random()*3)+'s';
 c.appendChild(p);
