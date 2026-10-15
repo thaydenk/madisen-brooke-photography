@@ -45,6 +45,7 @@ export function loadPage({
     pretendToBeVisual: true,
     url: 'https://madisenbphotography.com/',
     beforeParse(window) {
+      window.matchMedia = () => ({matches:true,addEventListener(){},removeEventListener(){}});
       window.IntersectionObserver = class {
         observe() {}
         disconnect() {}
