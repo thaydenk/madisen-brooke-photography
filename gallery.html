@@ -127,6 +127,8 @@ footer{padding:24px 5%;display:flex;justify-content:space-between;align-items:ce
 .explore-tiles{grid-template-columns:repeat(2,1fr);max-width:340px}
 footer{flex-direction:column;gap:10px;text-align:center}
 }
+
+.gallery-grid .photo-tile img{width:100%;height:auto;display:block;object-fit:contain}.gallery-grid .photo-tile{display:block;break-inside:avoid;margin-bottom:20px}.gallery-grid{display:block;columns:2;column-gap:20px}@media(max-width:650px){.gallery-grid{columns:1}}
 </style>
 </head>
 <body>
@@ -222,7 +224,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 
 <section class="gallery-cta-block reveal">
 <p class="cta-intro">Like what you see?</p>
-<a href="/#inquire" class="session-cta" id="inquireLink">Inquire about a session</a>
+<a href="/#contact" class="session-cta" id="inquireLink">Inquire about a session</a>
 </section>
 
 <section class="explore-more reveal">
@@ -243,6 +245,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 
 <script>
 const CATEGORIES = {
+  motherhood: {title:'MOTHERHOOD',crumb:'MOTHERHOOD',epigraph:'The way they fit in your arms right now.',meta:'Motherhood'},
   portraits: { title: 'PORTRAITS', crumb: 'PORTRAITS', epigraph: 'A little light, a little personality, entirely you.', meta: 'Portraits' },
   family:     { title: 'FAMILIES',   crumb: 'FAMILIES',   epigraph: 'They will remember how you held them — not how you posed.', meta: 'Family' },
   maternity:  { title: 'MATERNITY',  crumb: 'MATERNITY',  epigraph: 'Becoming, becoming, becoming — and then, somehow, they are here.', meta: 'Maternity' },
@@ -265,11 +268,52 @@ document.getElementById('inquireLink').href = '/#contact';
 
 
 const PHOTOS = {
- family: [{src:'photos/families/family-autumn.webp',alt:'Family of seven beneath sunlit autumn trees'}],
- portraits: [
- {src:'photos/portraits/madisen-outdoors.webp',alt:'Woman in a brown hat against green foliage'},
- {src:'photos/portraits/portrait-soft-light.webp',alt:'Black and white portrait with curled hair and a downward gaze'},
- {src:'photos/portraits/portrait-black-white.webp',alt:'Black and white portrait of a smiling woman in a knit hat'}]
+  "family": [
+    {
+      "src": "photos/families/family-shoulder-ride.jpg",
+      "alt": "Parents carrying their children on their shoulders on a forest road"
+    },
+    {
+      "src": "photos/families/mother-and-son-kiss.jpg",
+      "alt": "A little boy kissing his smiling mother on the cheek"
+    },
+    {
+      "src": "photos/families/family-little-moments.jpg",
+      "alt": "Parents holding their two children close in soft outdoor light"
+    },
+    {
+      "src": "photos/families/family-mountain-light.jpg",
+      "alt": "A family of four together against a sunlit mountain backdrop"
+    },
+    {
+      "src": "photos/families/family-autumn.webp",
+      "alt": "A family of seven beneath sunlit autumn trees"
+    }
+  ],
+  "motherhood": [
+    {
+      "src": "photos/families/mother-and-son-kiss.jpg",
+      "alt": "A little boy kissing his smiling mother on the cheek"
+    },
+    {
+      "src": "photos/families/family-little-moments.jpg",
+      "alt": "A mother and father holding their two children close"
+    }
+  ],
+  "portraits": [
+    {
+      "src": "photos/portraits/madisen-outdoors.webp",
+      "alt": "Madisen outdoors in a brown hat"
+    },
+    {
+      "src": "photos/portraits/portrait-soft-light.webp",
+      "alt": "Black and white portrait with softly curled hair"
+    },
+    {
+      "src": "photos/portraits/portrait-black-white.webp",
+      "alt": "Black and white portrait of a smiling woman in a knit hat"
+    }
+  ]
 };
 const selectedPhotos=PHOTOS[activeKey]||[];
 if(selectedPhotos.length){
@@ -284,7 +328,7 @@ if(selectedPhotos.length){
 // Build "explore more" tiles for the other 5 categories
 const exploreTiles = document.getElementById('exploreTiles');
 Object.entries(CATEGORIES).forEach(([key, val]) => {
-  if (key === activeKey) return;
+  if (key === activeKey || !PHOTOS[key]?.length) return;
   const a = document.createElement('a');
   a.className = 'explore-tile';
   a.href = 'gallery.html?cat=' + encodeURIComponent(key);
