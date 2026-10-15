@@ -1,73 +1,37 @@
-import { describe, test, expect } from 'vitest';
-import { loadPage, getInlineScripts } from './helpers.js';
+import {describe,test,expect,vi} from 'vitest';
+import {loadPage} from './helpers.js';
 
-/**
- * The inline script in index.html references DOM nodes by hard-coded ID and
- * CSS selectors. If somebody renames or removes one in the HTML without
- * updating the JS (or vice versa), the site silently breaks. These tests
- * extract every literal ID/selector referenced from the script and assert it
- * resolves against the rendered DOM.
- */
-describe('script ↔ HTML DOM contract', () => {
-  const scripts = getInlineScripts().join('\n');
-  const { document } = loadPage({ runScripts: false });
-
-  const idMatches = [...scripts.matchAll(/getElementById\(\s*['"]([^'"]+)['"]\s*\)/g)];
-  const idsReferenced = [...new Set(idMatches.map((m) => m[1]))];
-
-  test.each(idsReferenced)('#%s exists in the rendered HTML', (id) => {
-    expect(document.getElementById(id)).not.toBeNull();
+describe('visitor interactions',()=>{
+  test('mobile menu opens and closes after navigation',()=>{
+    const {document}=loadPage();
+    const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
+    menu.click();
+    expect(menu.getAttribute('aria-expanded')).toBe('true');
+    expect(nav.classList.contains('open')).toBe(true);
+    nav.querySelector('a').click();
+    expect(menu.getAttribute('aria-expanded')).toBe('false');
+    expect(nav.classList.contains('open')).toBe(false);
   });
-
-  const selectorMatches = [
-    ...scripts.matchAll(/querySelector(?:All)?\(\s*['"]([^'"]+)['"]\s*\)/g),
-  ];
-  const selectorsReferenced = [
-    ...new Set(selectorMatches.map((m) => m[1])),
-  ];
-
-  test.each(selectorsReferenced)('selector "%s" matches at least one element', (sel) => {
-    const found = document.querySelector(sel);
-    expect(found, `Expected selector "${sel}" to resolve to an element`).not.toBeNull();
+  test('each portfolio button opens its matching reference photograph',()=>{
+    const {document}=loadPage();
+    const dialog=document.querySelector('dialog');
+    dialog.showModal=vi.fn(); dialog.close=vi.fn();
+    for(const story of document.querySelectorAll('.story')){
+      story.click();
+      expect(dialog.querySelector('h2').textContent).toBe(story.dataset.story);
+      expect(dialog.querySelector('svg').getAttribute('viewBox')).toBe(story.dataset.crop);
+    }
+    expect(dialog.showModal).toHaveBeenCalledTimes(4);
+    dialog.querySelector('.close-dialog').click();
+    expect(dialog.close).toHaveBeenCalledTimes(1);
   });
-});
-
-describe('booking form ↔ submit handler contract', () => {
-  const { document } = loadPage({ runScripts: false });
-
-  // submitForm reads these from FormData by name, so every key it references
-  // must correspond to a named field in the form.
-  const requiredNames = [
-    'firstName',
-    'lastName',
-    'email',
-    'phone',
-    'sessionType',
-    'sessionCategory',
-    'preferredDate',
-    'referral',
-    'message',
-  ];
-
-  test.each(requiredNames)('form has a field named "%s"', (name) => {
-    const el = document.querySelector(`#leadForm [name="${name}"]`);
-    expect(el, `Expected #leadForm to contain a field named "${name}"`).not.toBeNull();
-  });
-
-  test('every package CTA preselects a value that exists in the dropdown', () => {
-    const select = document.getElementById('sessionType');
-    const optionValues = [...select.querySelectorAll('option')].map((o) => o.value);
-
-    const ctaCalls = [
-      ...document.querySelectorAll('[onclick^="preselectPackage"]'),
-    ].map((el) => {
-      const m = el.getAttribute('onclick').match(/preselectPackage\(\s*['"]([^'"]+)['"]\s*\)/);
-      return m && m[1];
-    });
-
-    expect(ctaCalls.length).toBeGreaterThan(0);
-    for (const value of ctaCalls) {
-      expect(optionValues, `CTA preselects "${value}" but no <option> has that value`).toContain(value);
+  test('all reference photographs have accessible descriptions',()=>{
+    const {document}=loadPage();
+    const photos=[...document.querySelectorAll('.photo[data-crop]')];
+    expect(photos.length).toBeGreaterThan(0);
+    for(const photo of photos){
+      expect(photo.querySelector('svg').getAttribute('aria-label')).toBeTruthy();
+      expect(photo.querySelector('image').getAttribute('href')).toBe('brand-reference.png');
     }
   });
 });
