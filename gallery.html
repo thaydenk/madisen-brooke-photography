@@ -26,7 +26,11 @@
 <style>
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--ivory:#FAF7F1;--haze:#F3EDE2;--rose:#EFE8DC;--champagne:#E4DACB;--gold:#C8B9A4;--burnished:#A9896B;--bronze:#8B6B50;--deep:#2E2A23;--mid:#5C5546;--whisper:#857B6A;--line:#DDD4C6;--olive:#7A7D5F;--bluebonnet:#8A94B8;--bb-tip:#F6F1E7;--sage:#7A7D5F;--orn-bloom:#EDE4D4}
+/* MADISEN BROOKE DESIGN SYSTEM — brand tokens + component aliases */
+:root{
+--ivory:#FAF7F1;--sand:#E4DACB;--taupe:#C8B9A4;--clay:#A9896B;--clay-deep:#8B6B50;--olive:#7A7D5F;--charcoal:#2E2A23;
+--haze:#F3EDE2;--rose:#EFE8DC;--champagne:var(--sand);--gold:var(--taupe);--burnished:var(--clay);--bronze:var(--clay-deep);--deep:var(--charcoal);--mid:#5C5546;--whisper:#857B6A;--line:#DDD4C6;
+--bluebonnet:#8A94B8;--bb-tip:#F6F1E7;--sage:var(--olive);--orn-bloom:#EDE4D4}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--deep);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 ::selection{background:var(--champagne);color:var(--deep)}
