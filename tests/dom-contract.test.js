@@ -13,7 +13,7 @@ describe('visitor interactions',()=>{
     expect(nav.classList.contains('open')).toBe(false);
   });
   test('portfolio images and names link directly to their collections',()=>{
-    const {document}=loadPage();
+    const {document}=loadPage({page:'portfolio.html'});
     const cards=[...document.querySelectorAll('a.story')];
     expect(cards).toHaveLength(5);
     expect(document.querySelector('.collection-links')).toBeNull();

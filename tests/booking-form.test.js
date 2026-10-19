@@ -3,7 +3,7 @@ import { loadPage } from './helpers.js';
 
 describe('email inquiry', () => {
   test('preserves inquiry details and special characters in an email draft', () => {
-    const {window,document}=loadPage();
+    const {window,document}=loadPage({page:'contact.html'});
     const form=document.querySelector('#inquiry');
     for(const [name,value] of Object.entries({name:"Jane & O’Brien",email:'jane@example.com',session:'Mini Session',type:'Couples',message:'Line one\nLine two & memories'})) form.elements.namedItem(name).value=value;
     form.dispatchEvent(new window.Event('submit',{bubbles:true,cancelable:true}));
@@ -18,15 +18,19 @@ describe('email inquiry', () => {
     expect(window.localStorage.length).toBe(0);
   });
   test('requires name, email, and vision before normal browser submission',()=>{
-    const {document}=loadPage();
+    const {document}=loadPage({page:'contact.html'});
     const form=document.querySelector('#inquiry');
     expect(form.checkValidity()).toBe(false);
     for(const name of ['name','email','message']) expect(form.elements.namedItem(name).required).toBe(true);
     expect(form.elements.namedItem('email').type).toBe('email');
   });
   test.each(['Professional Headshots','Senior Portraits','Family Portraits','Mini Session'])('%s link selects the corresponding session',name=>{
-    const {document}=loadPage();
-    document.querySelector(`[data-package="${name}"]`).click();
-    expect(document.querySelector('select[name="session"]').value).toBe(name);
+    const {document}=loadPage({page:'contact.html'});
+    const packages=loadPage({page:'packages.html'});
+    const href=packages.document.querySelector(`[data-package="${name}"]`).getAttribute('href');
+    expect(new URL(href,'https://madisenbphotography.com/').searchParams.get('session')).toBe(name);
+    const contact=loadPage({page:'contact.html',query:'?session='+encodeURIComponent(name)});
+    expect(contact.document.querySelector('select[name="session"]').value).toBe(name);
+
   });
 });
