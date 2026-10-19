@@ -247,6 +247,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 
 <script>
 const CATEGORIES = {
+  headshots: {title:'PROFESSIONAL HEADSHOTS',crumb:'HEADSHOTS',epigraph:'A polished, relaxed portrait experience.',meta:'Professional Headshots'},
   motherhood: {title:'MOTHERHOOD',crumb:'MOTHERHOOD',epigraph:'The way they fit in your arms right now.',meta:'Motherhood'},
   portraits: { title: 'PORTRAITS', crumb: 'PORTRAITS', epigraph: 'A little light, a little personality, entirely you.', meta: 'Portraits' },
   family:     { title: 'FAMILIES',   crumb: 'FAMILIES',   epigraph: 'They will remember how you held them — not how you posed.', meta: 'Family' },
@@ -270,6 +271,7 @@ document.getElementById('inquireLink').href = '/#contact';
 
 
 const PHOTOS = {
+  "headshots": [{"src":"photos/headshots/professional-outdoor-headshot.jpg","alt":"Professional portrait of a man seated outdoors"}],
   "couples": [{"src":"photos/couples/couple-spring-orchard.jpg","alt":"A couple smiling together in a green spring orchard"}],
   "family": [
     {
@@ -304,6 +306,7 @@ const PHOTOS = {
     }
   ],
   "portraits": [
+    {"src":"photos/portraits/child-blue-dress.jpg","alt":"Child in a blue dress smiling outdoors"},
     {
       "src": "photos/portraits/madisen-outdoors.webp",
       "alt": "Madisen outdoors in a brown hat"
@@ -348,3 +351,4 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
+

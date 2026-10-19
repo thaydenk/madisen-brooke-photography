@@ -1,4 +1,4 @@
-import {describe,test,expect,vi} from 'vitest';
+import {describe,test,expect} from 'vitest';
 import {loadPage} from './helpers.js';
 
 describe('visitor interactions',()=>{
@@ -12,19 +12,16 @@ describe('visitor interactions',()=>{
     expect(menu.getAttribute('aria-expanded')).toBe('false');
     expect(nav.classList.contains('open')).toBe(false);
   });
-  test('each portfolio button opens its matching supplied photograph',()=>{
+  test('portfolio images and names link directly to their collections',()=>{
     const {document}=loadPage();
-    const dialog=document.querySelector('dialog');
-    dialog.showModal=vi.fn(); dialog.close=vi.fn();
-    for(const story of document.querySelectorAll('.story')){
-      story.click();
-      expect(dialog.querySelector('h2').textContent).toBe(story.dataset.story);
-      expect(dialog.querySelector('img').getAttribute('src')).toBe(story.dataset.image);
-      expect(dialog.querySelector('img').getAttribute('alt')).toBe(story.dataset.alt);
+    const cards=[...document.querySelectorAll('a.story')];
+    expect(cards).toHaveLength(5);
+    expect(document.querySelector('.collection-links')).toBeNull();
+    for(const card of cards){
+      expect(card.getAttribute('href')).toMatch(/^gallery\.html\?cat=(family|motherhood|portraits|couples|headshots)$/);
+      expect(card.querySelector('img')).not.toBeNull();
+      expect(card.querySelector('span:last-child').textContent.trim()).toBeTruthy();
     }
-    expect(dialog.showModal).toHaveBeenCalledTimes(4);
-    dialog.querySelector('.close-dialog').click();
-    expect(dialog.close).toHaveBeenCalledTimes(1);
   });
   test('all supplied photographs have accessible descriptions',()=>{
     const {document}=loadPage();
