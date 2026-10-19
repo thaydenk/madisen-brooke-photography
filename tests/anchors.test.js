@@ -23,7 +23,7 @@ describe('in-page anchor integrity', () => {
 });
 
 describe('external link sanity', () => {
-  const { document } = loadPage({ runScripts: false });
+  const { document } = loadPage({ page: 'contact.html', runScripts: false });
 
   test('every external http(s) link parses as a valid absolute URL', () => {
     const links = [...document.querySelectorAll('a[href^="http"]')].map(
