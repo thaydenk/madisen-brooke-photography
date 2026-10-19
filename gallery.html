@@ -196,7 +196,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 <nav>
 <a href="/" class="nav-brand"><svg class="nav-mono" aria-hidden="true"><use href="#orn-monogram"/></svg><span>MADISEN&nbsp;BR<span class="oo">OO</span>KE</span></a>
 <div class="nav-right">
-<a href="/" class="nav-back">BACK TO HOME</a>
+<a href="portfolio.html">PORTFOLIO</a><a href="about.html">ABOUT</a><a href="packages.html">PACKAGES</a><a href="contact.html">CONTACT</a>
 <span class="nav-social">
 <a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
 <a href="https://www.facebook.com/share/1MXgpejTeB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -210,7 +210,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 <svg class="orn orn-gal-bloom" aria-hidden="true"><use href="#orn-magnolia"/></svg>
 <svg class="orn orn-hero-tl" aria-hidden="true"><use href="#orn-corner"/></svg>
 <svg class="orn orn-hero-br" aria-hidden="true"><use href="#orn-corner"/></svg>
-<p class="gallery-breadcrumb"><a href="/#portfolio">PORTFOLIO</a> &nbsp;/&nbsp; <span id="galleryCrumb">FAMILIES</span></p>
+<p class="gallery-breadcrumb"><a href="portfolio.html">PORTFOLIO</a> &nbsp;/&nbsp; <span id="galleryCrumb">FAMILIES</span></p>
 <svg class="orn-crest" aria-hidden="true"><use href="#orn-fleur"/></svg>
 <h1 class="gallery-title" id="galleryTitle">FAMILIES</h1>
 <div class="gallery-rule"></div>
@@ -226,7 +226,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 
 <section class="gallery-cta-block reveal">
 <p class="cta-intro">Like what you see?</p>
-<a href="/#contact" class="session-cta" id="inquireLink">Inquire about a session</a>
+<a href="contact.html" class="session-cta" id="inquireLink">Inquire about a session</a>
 </section>
 
 <section class="explore-more reveal">
@@ -267,13 +267,20 @@ document.getElementById('galleryTitle').textContent = data.title;
 document.getElementById('galleryCrumb').textContent = data.crumb;
 document.getElementById('galleryEpigraph').textContent = data.epigraph;
 document.title = data.meta + ' | Madisen Brooke Photography';
-document.getElementById('inquireLink').href = '/#contact';
+document.getElementById('inquireLink').href = 'contact.html';
 
 
 const PHOTOS = {
   "headshots": [{"src":"photos/headshots/professional-outdoor-headshot.jpg","alt":"Professional portrait of a man seated outdoors"}],
   "couples": [{"src":"photos/couples/couple-spring-orchard.jpg","alt":"A couple smiling together in a green spring orchard"}],
   "family": [
+{"src": "photos/families/mother-daughter-autumn.jpg", "alt": "Mother and daughter smiling cheek to cheek outdoors"},
+{"src": "photos/families/mother-newborn-blue.jpg", "alt": "Mother holding her newborn in coordinating blue outfits"},
+{"src": "photos/families/family-evening-field.jpg", "alt": "Parents with three children in a field at sunset"},
+{"src": "photos/families/sisters-in-grass.jpg", "alt": "Two young sisters sitting together in the grass"},
+
+    {"src":"photos/families/family-two-daughters.jpg","alt":"Parents holding their two daughters in an open field"},
+    {"src":"photos/families/family-autumn-three-children.jpg","alt":"Parents with their three children beneath sunlit autumn trees"},
     {
       "src": "photos/families/family-shoulder-ride.jpg",
       "alt": "Parents carrying their children on their shoulders on a forest road"
@@ -351,4 +358,3 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
-

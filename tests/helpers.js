@@ -30,12 +30,14 @@ export function getInlineScripts() {
  * rather than triggering a jsdom navigation error.
  */
 export function loadPage({
+  page = 'index.html',
+  query = '',
   runScripts = true,
   viewportWidth = 800,
   fetchResponse = { ok: true, status: 200 },
   fetchFailsWith = null,
 } = {}) {
-  const html = readIndexHtml().replace(
+  const html = readFileSync(resolve(__dirname, '..', page), 'utf8').replace(
     /window\.location\.href\s*=\s*/g,
     'window.__navigatedTo=',
   );
@@ -43,7 +45,7 @@ export function loadPage({
   const dom = new JSDOM(html, {
     runScripts: runScripts ? 'dangerously' : 'outside-only',
     pretendToBeVisual: true,
-    url: 'https://madisenbphotography.com/',
+    url: 'https://madisenbphotography.com/'+page+query,
     beforeParse(window) {
       window.matchMedia = () => ({matches:true,addEventListener(){},removeEventListener(){}});
       window.IntersectionObserver = class {
