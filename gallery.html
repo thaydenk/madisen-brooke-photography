@@ -131,6 +131,9 @@ footer{flex-direction:column;gap:10px;text-align:center}
 .gallery-grid .photo-tile img{width:100%;height:auto;display:block;object-fit:contain}.gallery-grid .photo-tile{display:block;break-inside:avoid;margin-bottom:20px}.gallery-grid{display:block;columns:2;column-gap:20px}@media(max-width:650px){.gallery-grid{columns:1}}
 
 .gallery-hero{overflow:hidden}
+
+/* Supplied brand artwork; the circular viewport shows only the original MB mark. */
+header{height:158px;padding:8px 4%;gap:24px}.supplied-brand{display:block;width:300px;max-width:45%;flex-shrink:0;line-height:0}.supplied-brand>img{display:block;width:100%;height:auto;mix-blend-mode:multiply}.initials-logo{display:inline-block!important;position:relative;width:72px;height:72px;flex:0 0 72px;overflow:hidden;border-radius:50%;vertical-align:middle;line-height:0;background:#fffffa}.initials-logo>img{position:absolute!important;width:151.4423%!important;max-width:none!important;height:auto!important;left:-25.641%!important;top:-96.154%!important;inset:auto;object-fit:initial!important}.footer-brand{display:flex;justify-content:center;padding:20px 0 8px}.caption .initials-logo{margin:0}.nav-brand.supplied-brand{width:240px;max-width:45%}body>nav:has(.supplied-brand){height:132px;padding-top:6px;padding-bottom:6px}@media(max-width:900px){header{height:128px}.supplied-brand{width:240px;max-width:70%}}@media(max-width:540px){header{height:112px;padding:6px 5%;gap:12px}.supplied-brand{width:200px;max-width:72%}.nav-brand.supplied-brand{width:180px;max-width:65%}body>nav:has(.supplied-brand){height:auto;min-height:110px}.initials-logo{width:64px;height:64px;flex-basis:64px}}
 </style>
 </head>
 <body>
@@ -194,7 +197,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 </svg>
 
 <nav>
-<a href="/" class="nav-brand"><svg class="nav-mono" aria-hidden="true"><use href="#orn-monogram"/></svg><span>MADISEN&nbsp;BR<span class="oo">OO</span>KE</span></a>
+<a class="nav-brand supplied-brand" href="index.html" aria-label="Madisen Brooke Photography home"><img src="assets/madisen-brooke-name-logo.jpg" alt="Madisen Brooke Photography" width="1536" height="768"></a>
 <div class="nav-right">
 <a href="portfolio.html">PORTFOLIO</a><a href="about.html">ABOUT</a><a href="packages.html">PACKAGES</a><a href="contact.html">CONTACT</a>
 <span class="nav-social">
@@ -236,7 +239,7 @@ footer{flex-direction:column;gap:10px;text-align:center}
 
 </main>
 
-<footer>
+<footer><div class="footer-brand"><span class="initials-logo" role="img" aria-label="Madisen Brooke initials logo"><img src="assets/mb-initials-source.png" alt="" aria-hidden="true" width="1179" height="2556" loading="lazy"></span></div>
 <span>MADISENBPHOTOGRAPHY.COM</span>
 <div class="footer-social">
 <a href="https://www.instagram.com/madisenbrooke.photography?igsh=MWpudmRudzJjdXg1Zw==" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
